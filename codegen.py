@@ -1,9 +1,11 @@
 #!/usr/bin/env python
 
 import json
+import re
 import sys
 from collections import Counter
 from collections import defaultdict
+from dataclasses import dataclass
 
 type_mapping = {
     "any": "Any",
@@ -59,6 +61,8 @@ def enum_name(values, names):
 
 
 def enum_name_from_unpecified(u):
+    # A lot of the enum types in the discovery document have a special
+    # first value which also maps to a good name for the type of the enum.
     for end in ("_UNSPECIFIED", "_UNDEFINED"):
         if u.endswith(end):
             return u[: -len(end)].replace("_", " ").title().replace(" ", "")
@@ -107,16 +111,12 @@ def emit_typed_dict(spec, enums):
     print(f"    {description}")
     print(f'    """')
     for n, p in properties.items():
-        emit_property(n, p, enums)
+        prop_type = property_type(n, p, enums)
+        print(f"    {n}: {prop_type}")
     print()
 
 
-def emit_property(n, p, enums):
-    print(f"    {n}: {property_type(n, p, enums)}")
-
-
 def emit_enum(name, values):
-    [f'Literal["{v}"]' for v in values]
     print(f"{name} = Union[")
     for v in values:
         print(f'    Literal["{v}"],')
@@ -151,21 +151,116 @@ def property_type(n, p, enums):
         raise Exception(json.dumps(p, indent=2))
 
 
+@dataclass
+class Param:
+    name: str
+    type: str
+    location: str
+    required: bool = False
+    repeated: bool = False
+
+    def __post_init__(self):
+        if self.repeated:
+            self.type = f"List[{self.type}]"
+
+
+def emit_methods(resources, enums, base_url):
+
+    for name, spec in resources.items():
+        print(f"# {name}")
+        for method_name, m in spec["methods"].items():
+
+            ps = method_params(m, enums)
+
+            args = [f"{snake_case(p.name)}: {p.type}" for p in ps]
+
+            if req := m.get("request"):
+                request_type = property_type(None, req, enums)
+                args.append(f"request: {request_type}")
+
+            resp = property_type(None, m["response"], enums)
+            doc = m["description"]
+
+            # Translate parameter names
+            path_args = {p.name: f"{{{snake_case(p.name)}}}" for p in ps}
+            path = m["path"].format(**path_args)
+
+            http_method = m["httpMethod"].lower()
+            payload = ", json=request" if http_method == "post" else ""
+
+            query_params = [
+                f'"{p.name}": {snake_case(p.name)}' for p in ps if p.location == "query"
+            ]
+            qp = f"{{{', '.join(query_params)}}}" if query_params else ""
+            qp_arg = f", params=params" if query_params else ""
+
+            print(f"def {snake_case(method_name)}({', '.join(args)}) -> {resp}:")
+            print(f'    """')
+            print(f"    {doc}")
+            print(f'    """')
+            print(f'    url = f"{base_url}{path}"')
+            if qp:
+                print(f"    params: Dict[str, Any] = {qp}")
+            print(f"    return requests.{http_method}(url{qp_arg}{payload}).json()")
+            print("\n")
+
+
+def method_params(method, enums):
+    parameters = method["parameters"]
+    order = [p for p in method["parameterOrder"]]
+
+    def p(name, spec):
+        return Param(
+            name,
+            property_type(name, spec, enums),
+            spec["location"],
+            spec.get("required", False),
+            spec.get("repeated", False),
+        )
+
+    return sorted(
+        (p(name, spec) for name, spec in parameters.items()),
+        key=lambda p: (safe_index(order, p.name, len(order)), p.name),
+    )
+
+
+snake_case_pattern = re.compile(r"[A-Z]+")
+
+
+def snake_case(s):
+    return snake_case_pattern.sub(lambda m: f"_{m.group(0).lower()}", s)
+
+
+def safe_index(xs, x, default):
+    try:
+        return xs.index(x)
+    except ValueError:
+        return default
+
+
 if __name__ == "__main__":
 
     with open(sys.argv[1]) as f:
         data = json.load(f)
 
-    enums = enum_names(data["schemas"])
+    schemas = data["schemas"]
+    resources = data["resources"]
+    base_url = data["baseUrl"]
+
+    enums = enum_names(schemas)
 
     enum_type_names = set(enums.values())
 
-    print(f"# Until 4.0 we need this to allow forward type refs")
+    print(f"# Until Python 4.0 we need this to allow forward type refs")
     print(f"from __future__ import annotations")
     print(f"from typing import Any, Dict, List, Literal, TypedDict, Union")
+    print(f"import re")
+    print(f"import requests")
     print()
 
-    for name, spec in data["schemas"].items():
+    emit_methods(resources, enums, base_url)
+
+    for name, spec in schemas.items():
         assert spec["id"] == name
         assert spec["type"] == "object"
 
