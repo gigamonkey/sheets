@@ -6,17 +6,17 @@ sheets-discovery-v4.json:
 dicts.py: sheets-discovery-v4.json codegen.py
 	./codegen.py $< > $@
 
-fmt:
+fmt: all
 	isort --recursive .
 	autoflake --recursive --in-place --remove-all-unused-imports --remove-unused-variables .
 	black .
 
-lint:
+lint: all
 	flake8
 	isort --recursive . --check-only
 	black . --check
 
-typecheck:
+typecheck: all
 	mypy .
 
 tidy:
