@@ -12,6 +12,8 @@ mypy = "*"
 pylint = "*"
 
 [packages]
+google-auth-httplib2 = "*"
+google-auth-oauthlib = "*"
 pendulum = "*"
 requests = "*"
 
