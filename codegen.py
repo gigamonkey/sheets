@@ -6,6 +6,7 @@ import sys
 from collections import Counter
 from collections import defaultdict
 from dataclasses import dataclass
+from typing import Any
 
 type_mapping = {
     "any": "Any",
@@ -14,6 +15,14 @@ type_mapping = {
     "float": "float",
     "integer": "int",
     "string": "str",
+}
+
+defaults_for_type = {
+    "Any": "None",
+    "bool": "False",
+    "float": "0.0",
+    "int": "0",
+    "str": "",
 }
 
 
@@ -155,10 +164,10 @@ def translate_type(n, p, enums):
                 return f"Dict[str, {value_type}]"
             else:
                 say(p)
-        elif t == "number":
-            return type_mapping[p["format"]]
         elif "enum" in p:
             return enums[tuple(p["enum"])]
+        elif t == "number":
+            return type_mapping[p["format"]]
         else:
             return type_mapping[p["type"]]
 
@@ -169,17 +178,47 @@ def translate_type(n, p, enums):
         raise Exception(json.dumps(p, indent=2))
 
 
+def default_for_type(param_spec, enums):
+
+    if param_spec.get("repeated"):
+        return "None"
+    elif "type" in param_spec:
+        t = param_spec["type"]
+        if t == "array":
+            return "[]"
+        elif t == "object":
+            return "{}"
+        elif "enum" in param_spec:
+            return f'"{param_spec["enum"][0]}"'
+        elif t == "number":
+            return defaults_for_type[type_mapping[param_spec["format"]]]
+        else:
+            return defaults_for_type[type_mapping[t]]
+
+    elif "$ref" in param_spec:
+        return "None"
+
+    else:
+        raise Exception(json.dumps(p, indent=2))
+
+
 @dataclass
 class Param:
     name: str
     type: str
     location: str
-    required: bool = False
-    repeated: bool = False
+    required: bool
+    repeated: bool
+    default: Any
 
     def __post_init__(self):
         if self.repeated:
             self.type = f"List[{self.type}]"
+
+    def to_code(self, enums):
+        snake_case(self.name)
+        default = "" if self.required else f" = {self.default}"
+        return f"{snake_case(self.name)}: {self.type}{default}"
 
 
 def emit_resources(resources, enums, base_url, indent=0):
@@ -214,11 +253,7 @@ def emit_resources(resources, enums, base_url, indent=0):
 
             ps = method_params(m, enums)
 
-            args = [f"{snake_case(p.name)}: {p.type}" for p in ps]
-
-            if req := m.get("request"):
-                request_type = translate_type(None, req, enums)
-                args.append(f"request: {request_type}")
+            args = ", ".join(p.to_code(enums) for p in ps)
 
             resp = translate_type(None, m["response"], enums)
             doc = m["description"]
@@ -234,7 +269,7 @@ def emit_resources(resources, enums, base_url, indent=0):
             qp = f"{{{', '.join(query_params)}}}" if query_params else ""
             qp_arg = f", params=params" if query_params else ""
 
-            emit(f"    def {snake_case(method_name)}(self, {', '.join(args)}) -> {resp}:")
+            emit(f"    def {snake_case(method_name)}(self, {args}) -> {resp}:")
             emit(f'         """')
             emit(f"        {doc}")
             emit(f'         """')
@@ -250,8 +285,17 @@ def emit_resources(resources, enums, base_url, indent=0):
 
 
 def method_params(method, enums):
+
     parameters = method["parameters"]
     order = [p for p in method["parameterOrder"]]
+
+    if req := method.get("request"):
+        parameters["request"] = {
+            "$ref": req["$ref"],
+            "required": True,
+            "location": None,
+        }
+        order.append("request")
 
     def p(name, spec):
         return Param(
@@ -260,12 +304,13 @@ def method_params(method, enums):
             spec["location"],
             spec.get("required", False),
             spec.get("repeated", False),
+            default_for_type(spec, enums),
         )
 
-    return sorted(
-        (p(name, spec) for name, spec in parameters.items()),
-        key=lambda p: (safe_index(order, p.name, len(order)), p.name),
-    )
+    def sort_key(p):
+        return (safe_index(order, p.name, len(order)), p.name)
+
+    return sorted((p(name, spec) for name, spec in parameters.items()), key=sort_key)
 
 
 snake_case_pattern = re.compile(r"[A-Z]+")
@@ -303,7 +348,11 @@ if __name__ == "__main__":
     print(f"import requests")
     print(f"from login import login")
     print()
-    print(f"scopes = {scopes}")
+    print(f"scopes = [")
+    for s in scopes:
+        print(f"    {s!r},")
+    print("]")
+    print()
 
     emit_resources(resources, enums, base_url)
 
