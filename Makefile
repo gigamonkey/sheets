@@ -9,12 +9,12 @@ dicts.py: sheets-discovery-v4.json codegen.py
 fmt: all
 	isort --recursive .
 	autoflake --recursive --in-place --remove-all-unused-imports --remove-unused-variables .
-	black .
+	black --line-length 120 .
 
 lint: all
 	flake8
 	isort --recursive . --check-only
-	black . --check
+	black --check --line-length 120 .
 
 typecheck: all
 	mypy .
