@@ -194,18 +194,20 @@ def emit_resources(resources, enums, base_url, indent=0):
 
     for name, spec in resources.items():
 
-        emit(f"def {name}(creds):")
         if indent == 0:
-            emit(f"    return _{name}(creds)")
+            emit(f"def {name}():")
+            emit(f"    token = login(scopes).token")
+            emit(f'    headers = {{"Authorization": f"Bearer {{token}}"}}')
+            emit(f"    return _{name}(headers)")
         else:
-            emit(f"    return self._{name}(self.creds)")
+            emit(f"def {name}(self):")
+            emit(f"    return self._{name}(self.headers)")
         emit()
         emit()
         emit(f"class _{name}:")
         emit()
-        emit(f"    def __init__(self, creds):")
-        emit(f'        self.headers = {{"Authorization": f"Bearer {{self.creds.token}}"}}')
-        emit(f"        self.creds = creds")
+        emit(f"    def __init__(self, headers):")
+        emit(f"        self.headers = headers")
         emit()
 
         for method_name, m in spec["methods"].items():
@@ -232,7 +234,7 @@ def emit_resources(resources, enums, base_url, indent=0):
             qp = f"{{{', '.join(query_params)}}}" if query_params else ""
             qp_arg = f", params=params" if query_params else ""
 
-            emit(f"    def {snake_case(method_name)}({', '.join(args)}) -> {resp}:")
+            emit(f"    def {snake_case(method_name)}(self, {', '.join(args)}) -> {resp}:")
             emit(f'         """')
             emit(f"        {doc}")
             emit(f'         """')
@@ -288,6 +290,7 @@ if __name__ == "__main__":
     schemas = data["schemas"]
     resources = data["resources"]
     base_url = data["baseUrl"]
+    scopes = list(data["auth"]["oauth2"]["scopes"].keys())
 
     enums = enum_names(schemas, resources)
 
@@ -298,7 +301,9 @@ if __name__ == "__main__":
     print(f"from typing import Any, Dict, List, Literal, TypedDict, Union")
     print(f"import re")
     print(f"import requests")
+    print(f"from login import login")
     print()
+    print(f"scopes = {scopes}")
 
     emit_resources(resources, enums, base_url)
 
