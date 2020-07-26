@@ -16,6 +16,7 @@ google-auth-httplib2 = "*"
 google-auth-oauthlib = "*"
 pendulum = "*"
 requests = "*"
+beautifulsoup4 = "*"
 
 [requires]
 python_version = "3.8"
