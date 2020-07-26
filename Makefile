@@ -1,10 +1,15 @@
-all: dicts.py
+discover_url := 'https://sheets.googleapis.com/$$discovery/rest?version=v4'
+
+
+all: spreadsheets.py
 
 sheets-discovery-v4.json:
-	curl 'https://sheets.googleapis.com/$$discovery/rest?version=v4' | jq -S '.' > $@
+	curl $(discover_url) | jq -S '.' > $@
 
-dicts.py: sheets-discovery-v4.json codegen.py
-	./codegen.py $< > $@
+spreadsheets.py: sheets-discovery-v4.json codegen.py
+	echo "# Generated from $(discover_url)" > $@
+	echo "" >> $@
+	./codegen.py $< >> $@
 
 fmt: all
 	isort --recursive .
@@ -24,4 +29,4 @@ tidy:
 
 clean: tidy
 	rm sheets-discovery-v4.json
-	rm dicts.py
+	rm spreadsheets.py
