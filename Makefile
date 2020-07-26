@@ -1,15 +1,26 @@
 discover_url := 'https://sheets.googleapis.com/$$discovery/rest?version=v4'
+functions_url := 'https://support.google.com/docs/table/25273'
 
+dir := gigamonkeys
 
-all: spreadsheets.py
+generated := $(dir)/spreadsheets.py
+generated += $(dir)/functions.py
+
+all: $(generated)
 
 sheets-discovery-v4.json:
 	curl $(discover_url) | jq -S '.' > $@
 
-spreadsheets.py: sheets-discovery-v4.json codegen.py
+functions-list.html:
+	curl $(functions_url) > $@
+
+$(dir)/spreadsheets.py: sheets-discovery-v4.json build/codegen.py
 	echo "# Generated from $(discover_url)" > $@
 	echo "" >> $@
-	./codegen.py $< >> $@
+	build/codegen.py $< >> $@
+
+$(dir)/functions.py: functions-list.html build/make_functions.py
+	build/make_functions.py $< $(functions_url) > $@
 
 fmt: all
 	isort --recursive .
@@ -22,11 +33,12 @@ lint: all
 	black --check --line-length 120 .
 
 typecheck: all
-	mypy .
+	mypy $(dir)
 
 tidy:
 	rm -f *~
 
 clean: tidy
-	rm sheets-discovery-v4.json
-	rm spreadsheets.py
+	rm -f sheets-discovery-v4.json
+	rm -f functions-list.html
+	rm -f $(generated)
