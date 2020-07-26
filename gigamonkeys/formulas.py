@@ -3,7 +3,6 @@ from __future__ import annotations
 import re
 from ast import AST
 from dataclasses import dataclass
-from typing import Optional
 
 
 @dataclass
@@ -21,6 +20,7 @@ class Cell(AST):
         else:
             return f"{self.sheet}!{self.col}{self.row}"
 
+
 @dataclass
 class Range:
 
@@ -33,6 +33,7 @@ class Range:
         else:
             return f"{self.top_left.to_formula()}:{self.bottom_right.to_formula(self.bottom_right.sheet)}"
 
+
 def cell(name: str, sheet=None):
     if m := re.match(r"^(?:(?:'(.*?)')|(.*?))!([A-Za-z]+)(\d+)$", name):
         return Cell(m.group(1) or m.group(2), m.group(3), int(m.group(4)))
@@ -43,7 +44,6 @@ def cell(name: str, sheet=None):
 
 
 if __name__ == "__main__":
-
 
     print(cell("Sheet1!A1").to_formula())
     print(cell("A1", "'Another sheet'").to_formula("'Another sheet'"))
