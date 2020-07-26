@@ -3,6 +3,7 @@
 import json
 import re
 import sys
+import textwrap
 from collections import Counter
 from collections import defaultdict
 from dataclasses import dataclass
@@ -130,12 +131,12 @@ def common_suffix(names):
 
 def emit_typed_dict(spec, enums):
     name = spec["id"]
-    description = spec["description"]
+    doc = spec["description"]
     properties = spec["properties"]
 
     print(f"class {name}(TypedDict):")
     print(f'    """')
-    print(f"    {description}")
+    print(textwrap.indent(doc.strip(), (" " * 4)))
     print(f'    """')
     for n, p in properties.items():
         prop_type = translate_type(n, p, enums)
@@ -270,13 +271,13 @@ def emit_resources(resources, enums, base_url, indent=0):
             qp_arg = f", params=params" if query_params else ""
 
             emit(f"    def {snake_case(method_name)}(self, {args}) -> {resp}:")
-            emit(f'         """')
-            emit(f"        {doc}")
-            emit(f'         """')
-            emit(f'         url = f"{base_url}{path}"')
+            emit(f'        """')
+            print(textwrap.indent(doc.strip(), indentation + (" " * 8)))
+            emit(f'        """')
+            emit(f'        url = f"{base_url}{path}"')
             if qp:
-                emit(f"         params: Dict[str, Any] = {qp}")
-            emit(f"         return requests.{http_method}(url{qp_arg}{payload}, headers=self.headers).json()")
+                emit(f"        params: Dict[str, Any] = {qp}")
+            emit(f"        return requests.{http_method}(url{qp_arg}{payload}, headers=self.headers).json()")
             emit()
             emit()
 
