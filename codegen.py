@@ -21,22 +21,36 @@ def say(x):
     print(x, file=sys.stderr)
 
 
-def walk_properties(schemas, fn):
-    def walk_type(parent, property_name, p, fn):
-        if "type" in p:
-            t = p["type"]
-            if t == "array":
-                yield from walk_type(parent, property_name, p["items"], fn)
-            else:
-                yield from fn(parent, property_name, p)
+def walk_type(parent, property_name, p, fn):
+    if "type" in p:
+        t = p["type"]
+        if t == "array":
+            yield from walk_type(parent, property_name, p["items"], fn)
+        else:
+            yield from fn(parent, property_name, p)
 
+
+def walk_properties(schemas, fn):
     for name, spec in schemas.items():
         properties = spec["properties"]
         for n, p in properties.items():
             yield from walk_type(name, n, p, fn)
 
 
-def enum_names(schemas):
+def walk_parameters(resources, fn):
+    def walk_methods(resource):
+        for method_name, method in resource["methods"].items():
+            for name, spec in method["parameters"].items():
+                yield from walk_type(method_name, name, spec, fn)
+
+        for sub_resource in resource.get("resources", {}).values():
+            yield from walk_methods(sub_resource)
+
+    for resource in resources.values():
+        yield from walk_methods(resource)
+
+
+def enum_names(schemas, resources):
     def enum_values(parent, key, p):
         if "enum" in p:
             yield (parent, key, tuple(p["enum"]))
@@ -44,6 +58,10 @@ def enum_names(schemas):
     enums = defaultdict(list)
     for parent, key, values in walk_properties(schemas, enum_values):
         enums[values].append((parent, key))
+
+    for parent, key, values in walk_parameters(resources, enum_values):
+        enums[values].append((parent, key))
+
     return {values: enum_name(values, names) for values, names in enums.items()}
 
 
@@ -111,7 +129,7 @@ def emit_typed_dict(spec, enums):
     print(f"    {description}")
     print(f'    """')
     for n, p in properties.items():
-        prop_type = property_type(n, p, enums)
+        prop_type = translate_type(n, p, enums)
         print(f"    {n}: {prop_type}")
     print()
 
@@ -124,16 +142,16 @@ def emit_enum(name, values):
     print()
 
 
-def property_type(n, p, enums):
+def translate_type(n, p, enums):
 
     if "type" in p:
         t = p["type"]
         if t == "array":
-            item_type = property_type(None, p["items"], enums)
+            item_type = translate_type(None, p["items"], enums)
             return f"List[{item_type}]"
         elif t == "object":
             if "additionalProperties" in p:
-                value_type = property_type(None, p["additionalProperties"], enums)
+                value_type = translate_type(None, p["additionalProperties"], enums)
                 return f"Dict[str, {value_type}]"
             else:
                 say(p)
@@ -164,10 +182,32 @@ class Param:
             self.type = f"List[{self.type}]"
 
 
-def emit_methods(resources, enums, base_url):
+def emit_resources(resources, enums, base_url, indent=0):
+
+    indentation = " " * (indent * 4)
+
+    def emit(x=None):
+        if x is not None:
+            print(f"{indentation}{x}")
+        else:
+            print()
 
     for name, spec in resources.items():
-        print(f"# {name}")
+
+        emit(f"def {name}(creds):")
+        if indent == 0:
+            emit(f"    return _{name}(creds)")
+        else:
+            emit(f"    return self._{name}(self.creds)")
+        emit()
+        emit()
+        emit(f"class _{name}:")
+        emit()
+        emit(f"    def __init__(self, creds):")
+        emit(f'        self.headers = {{"Authorization": f"Bearer {{self.creds.token}}"}}')
+        emit(f"        self.creds = creds")
+        emit()
+
         for method_name, m in spec["methods"].items():
 
             ps = method_params(m, enums)
@@ -175,10 +215,10 @@ def emit_methods(resources, enums, base_url):
             args = [f"{snake_case(p.name)}: {p.type}" for p in ps]
 
             if req := m.get("request"):
-                request_type = property_type(None, req, enums)
+                request_type = translate_type(None, req, enums)
                 args.append(f"request: {request_type}")
 
-            resp = property_type(None, m["response"], enums)
+            resp = translate_type(None, m["response"], enums)
             doc = m["description"]
 
             # Translate parameter names
@@ -188,21 +228,23 @@ def emit_methods(resources, enums, base_url):
             http_method = m["httpMethod"].lower()
             payload = ", json=request" if http_method == "post" else ""
 
-            query_params = [
-                f'"{p.name}": {snake_case(p.name)}' for p in ps if p.location == "query"
-            ]
+            query_params = [f'"{p.name}": {snake_case(p.name)}' for p in ps if p.location == "query"]
             qp = f"{{{', '.join(query_params)}}}" if query_params else ""
             qp_arg = f", params=params" if query_params else ""
 
-            print(f"def {snake_case(method_name)}({', '.join(args)}) -> {resp}:")
-            print(f'    """')
-            print(f"    {doc}")
-            print(f'    """')
-            print(f'    url = f"{base_url}{path}"')
+            emit(f"    def {snake_case(method_name)}({', '.join(args)}) -> {resp}:")
+            emit(f'         """')
+            emit(f"        {doc}")
+            emit(f'         """')
+            emit(f'         url = f"{base_url}{path}"')
             if qp:
-                print(f"    params: Dict[str, Any] = {qp}")
-            print(f"    return requests.{http_method}(url{qp_arg}{payload}).json()")
-            print("\n")
+                emit(f"         params: Dict[str, Any] = {qp}")
+            emit(f"         return requests.{http_method}(url{qp_arg}{payload}, headers=self.headers).json()")
+            emit()
+            emit()
+
+        if sub_resources := spec.get("resources"):
+            emit_resources(sub_resources, enums, base_url, indent=indent + 1)
 
 
 def method_params(method, enums):
@@ -212,7 +254,7 @@ def method_params(method, enums):
     def p(name, spec):
         return Param(
             name,
-            property_type(name, spec, enums),
+            translate_type(name, spec, enums),
             spec["location"],
             spec.get("required", False),
             spec.get("repeated", False),
@@ -247,7 +289,7 @@ if __name__ == "__main__":
     resources = data["resources"]
     base_url = data["baseUrl"]
 
-    enums = enum_names(schemas)
+    enums = enum_names(schemas, resources)
 
     enum_type_names = set(enums.values())
 
@@ -258,7 +300,7 @@ if __name__ == "__main__":
     print(f"import requests")
     print()
 
-    emit_methods(resources, enums, base_url)
+    emit_resources(resources, enums, base_url)
 
     for name, spec in schemas.items():
         assert spec["id"] == name
