@@ -135,9 +135,7 @@ def emit_typed_dict(spec, enums):
     properties = spec["properties"]
 
     print(f"class {name}(TypedDict):")
-    print(f'    """')
-    print(textwrap.indent(doc.strip(), (" " * 4)))
-    print(f'    """')
+    emit_docs(doc, 4)
     for n, p in properties.items():
         prop_type = translate_type(n, p, enums)
         print(f"    {n}: {prop_type}")
@@ -271,9 +269,7 @@ def emit_resources(resources, enums, base_url, indent=0):
             qp_arg = f", params=params" if query_params else ""
 
             emit(f"    def {snake_case(method_name)}(self, {args}) -> {resp}:")
-            emit(f'        """')
-            print(textwrap.indent(doc.strip(), indentation + (" " * 8)))
-            emit(f'        """')
+            emit_docs(doc, (indent * 4) + 8)
             emit(f'        url = f"{base_url}{path}"')
             if qp:
                 emit(f"        params: Dict[str, Any] = {qp}")
@@ -283,6 +279,19 @@ def emit_resources(resources, enums, base_url, indent=0):
 
         if sub_resources := spec.get("resources"):
             emit_resources(sub_resources, enums, base_url, indent=indent + 1)
+
+
+def emit_docs(doc, indent):
+    doc = doc.strip()
+    indentation = " " * indent
+    if len(doc.splitlines()) > 1:
+        print(f'{indentation}"""')
+        print(textwrap.indent(doc, indentation))
+        print(f'{indentation}"""')
+    elif '"' in doc:
+        print(f'{indentation}"""{doc}"""')
+    else:
+        print(f'{indentation}"{doc}"')
 
 
 def method_params(method, enums):
