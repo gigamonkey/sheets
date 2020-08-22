@@ -1,4 +1,4 @@
-discover_url := 'https://sheets.googleapis.com/$$discovery/rest?version=v4'
+discovery_url := 'https://sheets.googleapis.com/$$discovery/rest?version=v4'
 functions_url := 'https://support.google.com/docs/table/25273'
 
 dir := gigamonkeys
@@ -9,15 +9,15 @@ generated += $(dir)/functions.py
 all: $(generated)
 
 sheets-discovery-v4.json:
-	curl $(discover_url) | jq -S '.' > $@
+	curl $(discovery_url) | jq -S '.' > $@
 
 functions-list.html:
 	curl $(functions_url) > $@
 
-$(dir)/spreadsheets.py: sheets-discovery-v4.json build/codegen.py
-	echo "# Generated from $(discover_url)" > $@
+$(dir)/spreadsheets.py: sheets-discovery-v4.json build/make_spreadsheets.py
+	echo "# Generated from $(discovery_url)" > $@
 	echo "" >> $@
-	build/codegen.py $< >> $@
+	build/make_spreadsheets.py $< >> $@
 
 $(dir)/functions.py: functions-list.html build/make_functions.py
 	build/make_functions.py $< $(functions_url) > $@

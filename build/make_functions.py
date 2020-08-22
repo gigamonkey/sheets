@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 
 from urllib.parse import urlparse
-from build.codegen import emit_docs
+from build.make_spreadsheets import emit_docs
 from bs4 import BeautifulSoup
 
 import sys
