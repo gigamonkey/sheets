@@ -14,10 +14,10 @@ sheets-discovery-v4.json:
 functions-list.html:
 	curl $(functions_url) > $@
 
-$(dir)/spreadsheets.py: sheets-discovery-v4.json build/make_spreadsheets.py
+$(dir)/spreadsheets.py: sheets-discovery-v4.json extra.json build/make_spreadsheets.py
 	echo "# Generated from $(discovery_url)" > $@
 	echo "" >> $@
-	build/make_spreadsheets.py $< >> $@
+	build/make_spreadsheets.py $< extra.json >> $@
 
 $(dir)/functions.py: functions-list.html build/make_functions.py
 	build/make_functions.py $< $(functions_url) > $@
