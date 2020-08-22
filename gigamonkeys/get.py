@@ -5,6 +5,9 @@ import sys
 
 from gigamonkeys.spreadsheets import spreadsheets
 
-json.dump(
-    spreadsheets().get(sys.argv[1], include_grid_data=len(sys.argv) > 2, ranges=sys.argv[2:]), sys.stdout, indent=2
-)
+spreadsheet_id = sys.argv[1]
+ranges = sys.argv[2:]
+
+data = spreadsheets().get(spreadsheet_id, include_grid_data=bool(ranges), ranges=ranges)
+
+json.dump(data, sys.stdout, indent=2)
