@@ -1,8 +1,52 @@
 from __future__ import annotations
 
 import re
-from ast import AST
 from dataclasses import dataclass
+from functools import singledispatch
+
+from gigamonkeys.ast import AST
+from gigamonkeys.ast import BinaryOp
+from gigamonkeys.ast import UnaryOp
+
+
+@singledispatch
+def formula(arg, sheet):
+    return repr(arg)
+
+
+@formula.register
+def _(arg: AST, sheet):
+    return arg.to_formula(sheet)
+
+
+@formula.register
+def _(arg: str, sheet):
+    return arg
+
+
+@formula.register
+def _(arg: bool, sheet):
+    return str(arg).upper()
+
+
+@formula.register
+def _(arg: BinaryOp, sheet=None):
+    return f"({formula(arg.left, sheet)} {arg.op} {formula(arg.right, sheet)})"
+
+
+@formula.register
+def _(arg: UnaryOp, sheet=None):
+    return f"({arg.op} {formula(arg.value, sheet)})"
+
+
+@dataclass
+class Function(AST):
+
+    function: str
+    args: List[Any]
+
+    def to_formula(self, sheet=None):
+        return f"{self.function}({', '.join(formula(a, sheet) for a in self.args)})"
 
 
 @dataclass
@@ -12,6 +56,12 @@ class Cell(AST):
     sheet: str
     col: str
     row: int
+
+    def next_row(self, n=1):
+        return Cell(self.sheet, self.col, self.row + n)
+
+    def prev_row(self, n=1):
+        return self.offset_row(-n)
 
     def to_formula(self, sheet=None):
         "Render for use on the given sheet."
@@ -29,9 +79,11 @@ class Range:
 
     def to_formula(self, sheet=None):
         if sheet == self.top_left.sheet:
-            return f"{self.top_left.to_formula(self.top_left.sheet)}:{self.bottom_right.to_formula(self.bottom_right.sheet)}"
+            return (
+                f"{formula(self.top_left, self.top_left.sheet)}:{formula(self.bottom_right, self.bottom_right.sheet)}"
+            )
         else:
-            return f"{self.top_left.to_formula()}:{self.bottom_right.to_formula(self.bottom_right.sheet)}"
+            return f"{formula(self.top_left, None)}:{formula(self.bottom_right, self.bottom_right.sheet)}"
 
 
 def cell(name: str, sheet=None):
@@ -45,9 +97,15 @@ def cell(name: str, sheet=None):
 
 if __name__ == "__main__":
 
-    print(cell("Sheet1!A1").to_formula())
-    print(cell("A1", "'Another sheet'").to_formula("'Another sheet'"))
+    c1 = cell("Sheet1!A1")
+    c2 = cell("A1", "'Another sheet'")
+
+    print(c1.to_formula())
+    print(c2.to_formula("Sheet1"))
+    print(c2.to_formula("'Another sheet'"))
 
     r = Range(cell("Sheet1!A1"), cell("Sheet1!Z1000"))
     print(r.to_formula())
     print(r.to_formula("Sheet1"))
+
+    print(Function("MAX", [r, c1, c1 + c2]).to_formula(sheet="Sheet1"))

@@ -31,7 +31,7 @@ def emit_function(name, description):
 
 print(f"# Generated from names extracted from {url}")
 print()
-print(f"from gigamonkeys.ast import Function")
+print(f"from gigamonkeys.formulas import Function")
 print()
 
 for table in soup.find_all("table"):

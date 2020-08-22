@@ -1,6 +1,5 @@
 from dataclasses import dataclass
 from typing import Any
-from typing import List
 
 
 class AST:
@@ -122,15 +121,3 @@ class UnaryOp(AST):
 
     op: str
     value: Any
-
-
-@dataclass
-class Value(AST):
-    value: Any
-
-
-@dataclass
-class Function(AST):
-
-    function: str
-    args: List[Any]
