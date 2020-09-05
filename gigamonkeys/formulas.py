@@ -3,7 +3,8 @@ from __future__ import annotations
 import re
 from dataclasses import dataclass
 from functools import singledispatch
-from typing import Any, Tuple
+from typing import Any
+from typing import Tuple
 
 from gigamonkeys.ast import AST
 from gigamonkeys.ast import BinaryOp
