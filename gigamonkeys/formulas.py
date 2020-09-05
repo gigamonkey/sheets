@@ -3,6 +3,7 @@ from __future__ import annotations
 import re
 from dataclasses import dataclass
 from functools import singledispatch
+from typing import Any, Tuple
 
 from gigamonkeys.ast import AST
 from gigamonkeys.ast import BinaryOp
@@ -20,27 +21,27 @@ def formula(arg, sheet):
 
 
 @formula.register
-def _(arg: Formulaic, sheet):
+def formula_Formulaic(arg: Formulaic, sheet):
     return arg.to_formula(sheet)
 
 
 @formula.register
-def _(arg: str, sheet):
+def formula_str(arg: str, sheet):
     return arg
 
 
 @formula.register
-def _(arg: bool, sheet):
+def formula_bool(arg: bool, sheet):
     return str(arg).upper()
 
 
 @formula.register
-def _(arg: BinaryOp, sheet=None):
+def formula_BinaryOp(arg: BinaryOp, sheet=None):
     return f"({formula(arg.left, sheet)} {arg.op} {formula(arg.right, sheet)})"
 
 
 @formula.register
-def _(arg: UnaryOp, sheet=None):
+def formula_UnaryOp(arg: UnaryOp, sheet=None):
     return f"({arg.op} {formula(arg.value, sheet)})"
 
 
@@ -48,7 +49,7 @@ def _(arg: UnaryOp, sheet=None):
 class Function(AST, Formulaic):
 
     function: str
-    args: List[Any]
+    args: Tuple[Any, ...]
 
     def to_formula(self, sheet=None):
         return f"{self.function}({', '.join(formula(a, sheet) for a in self.args)})"

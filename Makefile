@@ -25,6 +25,7 @@ $(dir)/functions.py: functions-list.html build/make_functions.py
 	build/make_functions.py $< $(functions_url) > $@
 
 check: all
+	mypy .
 	pytest .
 
 fmt: all
@@ -36,9 +37,6 @@ lint: all
 	flake8
 	isort --recursive . --check-only
 	black --check --line-length 120 .
-
-typecheck: all
-	mypy $(dir)
 
 tidy:
 	rm -f *~
