@@ -10,6 +10,7 @@ flake8 = "*"
 isort = "*"
 mypy = "*"
 pylint = "*"
+pytest = "*"
 
 [packages]
 google-auth-httplib2 = "*"
