@@ -23,16 +23,16 @@ def description(cells):
     return td.get_text()
 
 def emit_function(name, description):
+    print()
+    print()
     print(f"def {name}(*args) -> Function:")
     emit_docs(description, 4)
     print(f'    return Function("{name}", args)')
-    print()
 
 
 print(f"# Generated from names extracted from {url}")
 print()
 print(f"from gigamonkeys.formulas import Function")
-print()
 
 for table in soup.find_all("table"):
     cols = [th.get_text().lower() for th in table.thead.tr.find_all("th")]

@@ -288,8 +288,7 @@ def emit_docs(doc, indent):
     indentation = " " * indent
     if len(doc.splitlines()) > 1 or len(doc) > 80:
         print(f'{indentation}"""')
-        for p in paragraphs(doc):
-            print(textwrap.indent(textwrap.fill(p, 80), indentation))
+        print("\n\n".join(textwrap.indent(textwrap.fill(p, 80), indentation) for p in paragraphs(doc)))
         print(f'{indentation}"""')
     elif '"' in doc:
         print(f'{indentation}"""{doc}"""')
@@ -373,17 +372,25 @@ if __name__ == "__main__":
     enum_type_names = set(enums.values())
     non_total = set(extra["non_total"])
 
-    print(f"# Until Python 4.0 we need this to allow forward type refs")
-    print(f"from __future__ import annotations")
-    print(f"from typing import Any, Dict, List, Literal, Optional, TypedDict, Union")
-    print(f"import re")
-    print(f"import requests")
-    print(f"from login import login")
+    print("# Until Python 4.0 we need this to allow forward type refs")
+    print("from __future__ import annotations")
+    print()
+    print("from typing import Any")
+    print("from typing import Dict")
+    print("from typing import List")
+    print("from typing import Literal")
+    print("from typing import Optional")
+    print("from typing import TypedDict")
+    print("from typing import Union")
+    print()
+    print("import requests")
+    print("from login import login")
     print()
     print(f"scopes = [")
     for s in scopes:
-        print(f"    {s!r},")
+        print(f'    "{s}",')
     print("]")
+    print()
     print()
 
     emit_resources(resources, enums, base_url)

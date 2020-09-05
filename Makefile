@@ -5,6 +5,8 @@ functions_url := 'https://support.google.com/docs/table/25273'
 
 dir := gigamonkeys
 
+black := black --line-length 120
+
 generated := $(dir)/spreadsheets.py
 generated += $(dir)/functions.py
 
@@ -20,9 +22,11 @@ $(dir)/spreadsheets.py: sheets-discovery-v4.json extra.json build/make_spreadshe
 	echo "# Generated from $(discovery_url)" > $@
 	echo "" >> $@
 	build/make_spreadsheets.py $< extra.json >> $@
+	$(black) $@
 
 $(dir)/functions.py: functions-list.html build/make_functions.py
 	build/make_functions.py $< $(functions_url) > $@
+	$(black) $@
 
 check: all
 	mypy .
@@ -31,12 +35,12 @@ check: all
 fmt: all
 	isort --recursive .
 	autoflake --recursive --in-place --remove-all-unused-imports --remove-unused-variables .
-	black --line-length 120 .
+	$(black) .
 
 lint: all
 	flake8
 	isort --recursive . --check-only
-	black --check --line-length 120 .
+	$(black) --check .
 
 tidy:
 	rm -f *~
