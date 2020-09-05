@@ -129,7 +129,7 @@ def common_suffix(names):
     return "".join(reversed(s))
 
 
-def emit_typed_dict(spec, enums, total):
+def emit_typed_dict(spec, enums, total, optional):
     name = spec["id"]
     doc = spec["description"]
     properties = spec["properties"]
@@ -138,6 +138,8 @@ def emit_typed_dict(spec, enums, total):
     emit_docs(doc, 4)
     for n, p in properties.items():
         prop_type = translate_type(n, p, enums)
+        if optional.get(n):
+            prop_type = f"Optional[{prop_type}]"
         print(f"    {n}: {prop_type}")
     print()
 
@@ -373,7 +375,7 @@ if __name__ == "__main__":
 
     print(f"# Until Python 4.0 we need this to allow forward type refs")
     print(f"from __future__ import annotations")
-    print(f"from typing import Any, Dict, List, Literal, TypedDict, Union")
+    print(f"from typing import Any, Dict, List, Literal, Optional, TypedDict, Union")
     print(f"import re")
     print(f"import requests")
     print(f"from login import login")
@@ -393,7 +395,7 @@ if __name__ == "__main__":
         if name in enum_type_names:
             raise Exception(f"Name collision between dict and enum: {name}")
 
-        emit_typed_dict(spec, enums, name not in non_total)
+        emit_typed_dict(spec, enums, name not in non_total, extra["optional"].get(name, {}))
 
     for values, name in enums.items():
         emit_enum(name, values)

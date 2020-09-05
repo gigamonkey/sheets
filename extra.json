@@ -2,5 +2,10 @@
   "non_total": [
     "Request",
     "Response"
-  ]
+  ],
+  "optional": {
+    "BandedRange": {
+      "bandedRangeId": true
+    }
+  }
 }
