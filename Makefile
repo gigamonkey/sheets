@@ -1,3 +1,5 @@
+.PHONY: check fmt lint
+
 discovery_url := 'https://sheets.googleapis.com/$$discovery/rest?version=v4'
 functions_url := 'https://support.google.com/docs/table/25273'
 
@@ -21,6 +23,9 @@ $(dir)/spreadsheets.py: sheets-discovery-v4.json extra.json build/make_spreadshe
 
 $(dir)/functions.py: functions-list.html build/make_functions.py
 	build/make_functions.py $< $(functions_url) > $@
+
+check: all
+	pytest .
 
 fmt: all
 	isort --recursive .

@@ -8,6 +8,11 @@ from gigamonkeys.ast import AST
 from gigamonkeys.ast import BinaryOp
 from gigamonkeys.ast import UnaryOp
 
+class Formulaic:
+
+    def to_formula(self, sheet=None):
+        pass
+
 
 @singledispatch
 def formula(arg, sheet):
@@ -15,7 +20,7 @@ def formula(arg, sheet):
 
 
 @formula.register
-def _(arg: AST, sheet):
+def _(arg: Formulaic, sheet):
     return arg.to_formula(sheet)
 
 
@@ -40,7 +45,7 @@ def _(arg: UnaryOp, sheet=None):
 
 
 @dataclass
-class Function(AST):
+class Function(AST, Formulaic):
 
     function: str
     args: List[Any]
@@ -50,7 +55,7 @@ class Function(AST):
 
 
 @dataclass
-class Cell(AST):
+class Cell(AST, Formulaic):
 
     "A cell in a spreadsheet."
     sheet: str
@@ -72,7 +77,7 @@ class Cell(AST):
 
 
 @dataclass
-class Range:
+class Range(Formulaic):
 
     top_left: Cell
     bottom_right: Cell
@@ -93,19 +98,3 @@ def cell(name: str, sheet=None):
         return Cell(sheet, m.group(1), int(m.group(2)))
     else:
         raise Exception(f"{name} not a legal cell name.")
-
-
-if __name__ == "__main__":
-
-    c1 = cell("Sheet1!A1")
-    c2 = cell("A1", "'Another sheet'")
-
-    print(c1.to_formula())
-    print(c2.to_formula("Sheet1"))
-    print(c2.to_formula("'Another sheet'"))
-
-    r = Range(cell("Sheet1!A1"), cell("Sheet1!Z1000"))
-    print(r.to_formula())
-    print(r.to_formula("Sheet1"))
-
-    print(Function("MAX", [r, c1, c1 + c2]).to_formula(sheet="Sheet1"))
