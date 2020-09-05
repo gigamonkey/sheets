@@ -44,4 +44,3 @@ tidy:
 clean: tidy
 	rm -f sheets-discovery-v4.json
 	rm -f functions-list.html
-	rm -f $(generated)

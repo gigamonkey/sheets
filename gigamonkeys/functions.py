@@ -2,12 +2,14 @@
 
 from gigamonkeys.formulas import Function
 
+
 def DATE(*args) -> Function:
     """
     Converts a provided year, month, and day into a date.
     Learn more: https//support.google.com/docs/answer/3092969
     """
     return Function("DATE", args)
+
 
 def DATEDIF(*args) -> Function:
     """
@@ -16,6 +18,7 @@ def DATEDIF(*args) -> Function:
     """
     return Function("DATEDIF", args)
 
+
 def DATEVALUE(*args) -> Function:
     """
     Converts a provided date string in a known format to a date value.
@@ -23,12 +26,14 @@ def DATEVALUE(*args) -> Function:
     """
     return Function("DATEVALUE", args)
 
+
 def DAY(*args) -> Function:
     """
     Returns the day of the month that a specific date falls on, in numeric format.
     Learn more: https//support.google.com/docs/answer/3093040
     """
     return Function("DAY", args)
+
 
 def DAYS(*args) -> Function:
     """
@@ -38,6 +43,7 @@ def DAYS(*args) -> Function:
     """
     return Function("DAYS", args)
 
+
 def DAYS360(*args) -> Function:
     """
     Returns the difference between two days based on the 360 day year used in some
@@ -46,12 +52,14 @@ def DAYS360(*args) -> Function:
     """
     return Function("DAYS360", args)
 
+
 def EDATE(*args) -> Function:
     """
     Returns a date a specified number of months before or after another date.
     Learn more: https//support.google.com/docs/answer/3092974
     """
     return Function("EDATE", args)
+
 
 def EOMONTH(*args) -> Function:
     """
@@ -61,12 +69,14 @@ def EOMONTH(*args) -> Function:
     """
     return Function("EOMONTH", args)
 
+
 def HOUR(*args) -> Function:
     """
     Returns the hour component of a specific time, in numeric format.
     Learn more: https//support.google.com/docs/answer/3093045
     """
     return Function("HOUR", args)
+
 
 def ISOWEEKNUM(*args) -> Function:
     """
@@ -75,12 +85,14 @@ def ISOWEEKNUM(*args) -> Function:
     """
     return Function("ISOWEEKNUM", args)
 
+
 def MINUTE(*args) -> Function:
     """
     Returns the minute component of a specific time, in numeric format.
     Learn more: https//support.google.com/docs/answer/3093048
     """
     return Function("MINUTE", args)
+
 
 def MONTH(*args) -> Function:
     """
@@ -89,12 +101,14 @@ def MONTH(*args) -> Function:
     """
     return Function("MONTH", args)
 
+
 def NETWORKDAYS(*args) -> Function:
     """
     Returns the number of net working days between two provided days.
     Learn more: https//support.google.com/docs/answer/3092979
     """
     return Function("NETWORKDAYS", args)
+
 
 def NETWORKDAYS_INTL(*args) -> Function:
     """
@@ -104,12 +118,14 @@ def NETWORKDAYS_INTL(*args) -> Function:
     """
     return Function("NETWORKDAYS_INTL", args)
 
+
 def NOW(*args) -> Function:
     """
     Returns the current date and time as a date value.
     Learn more: https//support.google.com/docs/answer/3092981
     """
     return Function("NOW", args)
+
 
 def SECOND(*args) -> Function:
     """
@@ -118,12 +134,14 @@ def SECOND(*args) -> Function:
     """
     return Function("SECOND", args)
 
+
 def TIME(*args) -> Function:
     """
     Converts a provided hour, minute, and second into a time.
     Learn more: https//support.google.com/docs/answer/3093056
     """
     return Function("TIME", args)
+
 
 def TIMEVALUE(*args) -> Function:
     """
@@ -132,6 +150,7 @@ def TIMEVALUE(*args) -> Function:
     """
     return Function("TIMEVALUE", args)
 
+
 def TODAY(*args) -> Function:
     """
     Returns the current date as a date value.
@@ -139,12 +158,14 @@ def TODAY(*args) -> Function:
     """
     return Function("TODAY", args)
 
+
 def WEEKDAY(*args) -> Function:
     """
     Returns a number representing the day of the week of the date provided.
     Learn more: https//support.google.com/docs/answer/3092985
     """
     return Function("WEEKDAY", args)
+
 
 def WEEKNUM(*args) -> Function:
     """
@@ -154,12 +175,14 @@ def WEEKNUM(*args) -> Function:
     """
     return Function("WEEKNUM", args)
 
+
 def WORKDAY(*args) -> Function:
     """
     Calculates the end date after a specified number of working days.
     Learn more: https//support.google.com/docs/answer/3093059
     """
     return Function("WORKDAY", args)
+
 
 def WORKDAY_INTL(*args) -> Function:
     """
@@ -169,12 +192,14 @@ def WORKDAY_INTL(*args) -> Function:
     """
     return Function("WORKDAY_INTL", args)
 
+
 def YEAR(*args) -> Function:
     """
     Returns the year specified by a given date.
     Learn more: https//support.google.com/docs/answer/3093061
     """
     return Function("YEAR", args)
+
 
 def YEARFRAC(*args) -> Function:
     """
@@ -184,12 +209,14 @@ def YEARFRAC(*args) -> Function:
     """
     return Function("YEARFRAC", args)
 
+
 def BIN2DEC(*args) -> Function:
     """
     Converts a signed binary number to decimal format.
     Learn more: https//support.google.com/docs/answer/3092991
     """
     return Function("BIN2DEC", args)
+
 
 def BIN2HEX(*args) -> Function:
     """
@@ -198,12 +225,14 @@ def BIN2HEX(*args) -> Function:
     """
     return Function("BIN2HEX", args)
 
+
 def BIN2OCT(*args) -> Function:
     """
     Converts a signed binary number to signed octal format.
     Learn more: https//support.google.com/docs/answer/3092993
     """
     return Function("BIN2OCT", args)
+
 
 def BITAND(*args) -> Function:
     """
@@ -213,6 +242,7 @@ def BITAND(*args) -> Function:
     """
     return Function("BITAND", args)
 
+
 def BITLSHIFT(*args) -> Function:
     """
     Shifts the bits of the input a certain number of places to the left.
@@ -220,6 +250,7 @@ def BITLSHIFT(*args) -> Function:
     https//support.google.comhttps://support.google.com/docs/answer/9061443
     """
     return Function("BITLSHIFT", args)
+
 
 def BITOR(*args) -> Function:
     """
@@ -229,6 +260,7 @@ def BITOR(*args) -> Function:
     """
     return Function("BITOR", args)
 
+
 def BITRSHIFT(*args) -> Function:
     """
     Shifts the bits of the input a certain number of places to the right.
@@ -236,6 +268,7 @@ def BITRSHIFT(*args) -> Function:
     https//support.google.comhttps://support.google.com/docs/answer/9084100
     """
     return Function("BITRSHIFT", args)
+
 
 def BITXOR(*args) -> Function:
     """
@@ -245,12 +278,14 @@ def BITXOR(*args) -> Function:
     """
     return Function("BITXOR", args)
 
+
 def COMPLEX(*args) -> Function:
     """
     Creates a complex number given real and imaginary coefficients.
     Learn more: https//support.google.com/docs/answer/7407888
     """
     return Function("COMPLEX", args)
+
 
 def DEC2BIN(*args) -> Function:
     """
@@ -259,12 +294,14 @@ def DEC2BIN(*args) -> Function:
     """
     return Function("DEC2BIN", args)
 
+
 def DEC2HEX(*args) -> Function:
     """
     Converts a decimal number to signed hexadecimal format.
     Learn more: https//support.google.com/docs/answer/3093137
     """
     return Function("DEC2HEX", args)
+
 
 def DEC2OCT(*args) -> Function:
     """
@@ -273,12 +310,14 @@ def DEC2OCT(*args) -> Function:
     """
     return Function("DEC2OCT", args)
 
+
 def DELTA(*args) -> Function:
     """
     Compare two numeric values, returning 1 if they're equal.
     Learn more: https//support.google.com/docs/answer/3401147
     """
     return Function("DELTA", args)
+
 
 def ERF(*args) -> Function:
     """
@@ -289,9 +328,11 @@ def ERF(*args) -> Function:
     """
     return Function("ERF", args)
 
+
 def ERF_PRECISE(*args) -> Function:
     "See ERF"
     return Function("ERF_PRECISE", args)
+
 
 def GESTEP(*args) -> Function:
     """
@@ -303,12 +344,14 @@ def GESTEP(*args) -> Function:
     """
     return Function("GESTEP", args)
 
+
 def HEX2BIN(*args) -> Function:
     """
     Converts a signed hexadecimal number to signed binary format.
     Learn more: https//support.google.com/docs/answer/3093139
     """
     return Function("HEX2BIN", args)
+
 
 def HEX2DEC(*args) -> Function:
     """
@@ -317,12 +360,14 @@ def HEX2DEC(*args) -> Function:
     """
     return Function("HEX2DEC", args)
 
+
 def HEX2OCT(*args) -> Function:
     """
     Converts a signed hexadecimal number to signed octal format.
     Learn more: https//support.google.com/docs/answer/3093142
     """
     return Function("HEX2OCT", args)
+
 
 def IMABS(*args) -> Function:
     """
@@ -331,12 +376,14 @@ def IMABS(*args) -> Function:
     """
     return Function("IMABS", args)
 
+
 def IMAGINARY(*args) -> Function:
     """
     Returns the imaginary coefficient of a complex number.
     Learn more: https//support.google.com/docs/answer/7408639
     """
     return Function("IMAGINARY", args)
+
 
 def IMARGUMENT(*args) -> Function:
     """
@@ -346,6 +393,7 @@ def IMARGUMENT(*args) -> Function:
     """
     return Function("IMARGUMENT", args)
 
+
 def IMCONJUGATE(*args) -> Function:
     """
     Returns the complex conjugate of a number.
@@ -353,12 +401,14 @@ def IMCONJUGATE(*args) -> Function:
     """
     return Function("IMCONJUGATE", args)
 
+
 def IMCOS(*args) -> Function:
     """
     The IMCOS function returns the cosine of the given complex number.
     Learn more: https//support.google.com/docs/answer/9116546.
     """
     return Function("IMCOS", args)
+
 
 def IMCOSH(*args) -> Function:
     """
@@ -368,6 +418,7 @@ def IMCOSH(*args) -> Function:
     """
     return Function("IMCOSH", args)
 
+
 def IMCOT(*args) -> Function:
     """
     Returns the cotangent of the given complex number. For example, a given complex
@@ -375,6 +426,7 @@ def IMCOT(*args) -> Function:
     Learn more: https//support.google.com/docs/answer/9366254.
     """
     return Function("IMCOT", args)
+
 
 def IMCOTH(*args) -> Function:
     """
@@ -384,12 +436,14 @@ def IMCOTH(*args) -> Function:
     """
     return Function("IMCOTH", args)
 
+
 def IMCSC(*args) -> Function:
     """
     Returns the cosecant of the given complex number.
     Learn more: https//support.google.com/docs/answer/9199155.
     """
     return Function("IMCSC", args)
+
 
 def IMCSCH(*args) -> Function:
     """
@@ -399,12 +453,14 @@ def IMCSCH(*args) -> Function:
     """
     return Function("IMCSCH", args)
 
+
 def IMDIV(*args) -> Function:
     """
     Returns one complex number divided by another.
     Learn more: https//support.google.com/docs/answer/7411898
     """
     return Function("IMDIV", args)
+
 
 def IMEXP(*args) -> Function:
     """
@@ -413,12 +469,14 @@ def IMEXP(*args) -> Function:
     """
     return Function("IMEXP", args)
 
+
 def IMLOG(*args) -> Function:
     """
     Returns the logarithm of a complex number for a specified base.
     Learn more: https//support.google.com/docs/answer/9366486.
     """
     return Function("IMLOG", args)
+
 
 def IMLOG10(*args) -> Function:
     """
@@ -427,12 +485,14 @@ def IMLOG10(*args) -> Function:
     """
     return Function("IMLOG10", args)
 
+
 def IMLOG2(*args) -> Function:
     """
     Returns the logarithm of a complex number with base 2.
     Learn more: https//support.google.com/docs/answer/9366426.
     """
     return Function("IMLOG2", args)
+
 
 def IMPRODUCT(*args) -> Function:
     """
@@ -441,12 +501,14 @@ def IMPRODUCT(*args) -> Function:
     """
     return Function("IMPRODUCT", args)
 
+
 def IMREAL(*args) -> Function:
     """
     Returns the real coefficient of a complex number.
     Learn more: https//support.google.com/docs/answer/7408138
     """
     return Function("IMREAL", args)
+
 
 def IMSEC(*args) -> Function:
     """
@@ -456,6 +518,7 @@ def IMSEC(*args) -> Function:
     """
     return Function("IMSEC", args)
 
+
 def IMSECH(*args) -> Function:
     """
     Returns the hyperbolic secant of the given complex number. For example, a given
@@ -464,12 +527,14 @@ def IMSECH(*args) -> Function:
     """
     return Function("IMSECH", args)
 
+
 def IMSIN(*args) -> Function:
     """
     Returns the sine of the given complex number.
     Learn more: https//support.google.com/docs/answer/9198962.
     """
     return Function("IMSIN", args)
+
 
 def IMSINH(*args) -> Function:
     """
@@ -479,12 +544,14 @@ def IMSINH(*args) -> Function:
     """
     return Function("IMSINH", args)
 
+
 def IMSUB(*args) -> Function:
     """
     Returns the difference between two complex numbers.
     Learn more: https//support.google.com/docs/answer/7408393
     """
     return Function("IMSUB", args)
+
 
 def IMSUM(*args) -> Function:
     """
@@ -493,12 +560,14 @@ def IMSUM(*args) -> Function:
     """
     return Function("IMSUM", args)
 
+
 def IMTAN(*args) -> Function:
     """
     Returns the tangent of the given complex number.
     Learn more: https//support.google.com/docs/answer/9203334.
     """
     return Function("IMTAN", args)
+
 
 def IMTANH(*args) -> Function:
     """
@@ -508,12 +577,14 @@ def IMTANH(*args) -> Function:
     """
     return Function("IMTANH", args)
 
+
 def OCT2BIN(*args) -> Function:
     """
     Converts a signed octal number to signed binary format.
     Learn more: https//support.google.com/docs/answer/3093144
     """
     return Function("OCT2BIN", args)
+
 
 def OCT2DEC(*args) -> Function:
     """
@@ -522,12 +593,14 @@ def OCT2DEC(*args) -> Function:
     """
     return Function("OCT2DEC", args)
 
+
 def OCT2HEX(*args) -> Function:
     """
     Converts a signed octal number to signed hexadecimal format.
     Learn more: https//support.google.com/docs/answer/3093147
     """
     return Function("OCT2HEX", args)
+
 
 def FILTER(*args) -> Function:
     """
@@ -537,6 +610,7 @@ def FILTER(*args) -> Function:
     """
     return Function("FILTER", args)
 
+
 def SORT(*args) -> Function:
     """
     Sorts the rows of a given array or range by the values in one or more columns.
@@ -544,12 +618,14 @@ def SORT(*args) -> Function:
     """
     return Function("SORT", args)
 
+
 def SORTN(*args) -> Function:
     """
     Returns the first n items in a data set after performing a sort.
     Learn more: https//support.google.com/docs/answer/7354624
     """
     return Function("SORTN", args)
+
 
 def UNIQUE(*args) -> Function:
     """
@@ -559,6 +635,7 @@ def UNIQUE(*args) -> Function:
     """
     return Function("UNIQUE", args)
 
+
 def ACCRINT(*args) -> Function:
     """
     Calculates the accrued interest of a security that has periodic payments.
@@ -566,12 +643,14 @@ def ACCRINT(*args) -> Function:
     """
     return Function("ACCRINT", args)
 
+
 def ACCRINTM(*args) -> Function:
     """
     Calculates the accrued interest of a security that pays interest at maturity.
     Learn more: https//support.google.com/docs/answer/3093202
     """
     return Function("ACCRINTM", args)
+
 
 def AMORLINC(*args) -> Function:
     """
@@ -582,6 +661,7 @@ def AMORLINC(*args) -> Function:
     """
     return Function("AMORLINC", args)
 
+
 def COUPDAYBS(*args) -> Function:
     """
     Calculates the number of days from the first coupon, or interest payment, until
@@ -589,6 +669,7 @@ def COUPDAYBS(*args) -> Function:
     Learn more: https//support.google.com/docs/answer/3093154
     """
     return Function("COUPDAYBS", args)
+
 
 def COUPDAYS(*args) -> Function:
     """
@@ -598,6 +679,7 @@ def COUPDAYS(*args) -> Function:
     """
     return Function("COUPDAYS", args)
 
+
 def COUPDAYSNC(*args) -> Function:
     """
     Calculates the number of days from the settlement date until the next coupon, or
@@ -606,12 +688,14 @@ def COUPDAYSNC(*args) -> Function:
     """
     return Function("COUPDAYSNC", args)
 
+
 def COUPNCD(*args) -> Function:
     """
     Calculates next coupon, or interest payment, date after the settlement date.
     Learn more: https//support.google.com/docs/answer/3093157
     """
     return Function("COUPNCD", args)
+
 
 def COUPNUM(*args) -> Function:
     """
@@ -621,12 +705,14 @@ def COUPNUM(*args) -> Function:
     """
     return Function("COUPNUM", args)
 
+
 def COUPPCD(*args) -> Function:
     """
     Calculates last coupon, or interest payment, date before the settlement date.
     Learn more: https//support.google.com/docs/answer/3093210
     """
     return Function("COUPPCD", args)
+
 
 def CUMIPMT(*args) -> Function:
     """
@@ -637,6 +723,7 @@ def CUMIPMT(*args) -> Function:
     """
     return Function("CUMIPMT", args)
 
+
 def CUMPRINC(*args) -> Function:
     """
     Calculates the cumulative principal paid over a range of payment periods for an
@@ -646,6 +733,7 @@ def CUMPRINC(*args) -> Function:
     """
     return Function("CUMPRINC", args)
 
+
 def DB(*args) -> Function:
     """
     Calculates the depreciation of an asset for a specified period using the
@@ -653,6 +741,7 @@ def DB(*args) -> Function:
     Learn more: https//support.google.com/docs/answer/3093162
     """
     return Function("DB", args)
+
 
 def DDB(*args) -> Function:
     """
@@ -662,12 +751,14 @@ def DDB(*args) -> Function:
     """
     return Function("DDB", args)
 
+
 def DISC(*args) -> Function:
     """
     Calculates the discount rate of a security based on price.
     Learn more: https//support.google.com/docs/answer/3093216
     """
     return Function("DISC", args)
+
 
 def DOLLARDE(*args) -> Function:
     """
@@ -676,12 +767,14 @@ def DOLLARDE(*args) -> Function:
     """
     return Function("DOLLARDE", args)
 
+
 def DOLLARFR(*args) -> Function:
     """
     Converts a price quotation given as a decimal value into a decimal fraction.
     Learn more: https//support.google.com/docs/answer/3093217
     """
     return Function("DOLLARFR", args)
+
 
 def DURATION(*args) -> Function:
     """
@@ -691,6 +784,7 @@ def DURATION(*args) -> Function:
     """
     return Function("DURATION", args)
 
+
 def EFFECT(*args) -> Function:
     """
     Calculates the annual effective interest rate given the nominal rate and number
@@ -698,6 +792,7 @@ def EFFECT(*args) -> Function:
     Learn more: https//support.google.com/docs/answer/3093223
     """
     return Function("EFFECT", args)
+
 
 def FV(*args) -> Function:
     """
@@ -707,6 +802,7 @@ def FV(*args) -> Function:
     """
     return Function("FV", args)
 
+
 def FVSCHEDULE(*args) -> Function:
     """
     Calculates the future value of some principal based on a specified series of
@@ -714,6 +810,7 @@ def FVSCHEDULE(*args) -> Function:
     Learn more: https//support.google.com/docs/answer/3093226
     """
     return Function("FVSCHEDULE", args)
+
 
 def INTRATE(*args) -> Function:
     """
@@ -724,6 +821,7 @@ def INTRATE(*args) -> Function:
     """
     return Function("INTRATE", args)
 
+
 def IPMT(*args) -> Function:
     """
     Calculates the payment on interest for an investment based on constant-amount
@@ -731,6 +829,7 @@ def IPMT(*args) -> Function:
     Learn more: https//support.google.com/docs/answer/3093175
     """
     return Function("IPMT", args)
+
 
 def IRR(*args) -> Function:
     """
@@ -740,6 +839,7 @@ def IRR(*args) -> Function:
     """
     return Function("IRR", args)
 
+
 def ISPMT(*args) -> Function:
     """
     The ISPMT function calculates the interest paid during a particular period of an
@@ -748,6 +848,7 @@ def ISPMT(*args) -> Function:
     """
     return Function("ISPMT", args)
 
+
 def MDURATION(*args) -> Function:
     """
     Calculates the modified Macaulay duration of a security paying periodic
@@ -755,6 +856,7 @@ def MDURATION(*args) -> Function:
     Learn more: https//support.google.com/docs/answer/3093178
     """
     return Function("MDURATION", args)
+
 
 def MIRR(*args) -> Function:
     """
@@ -765,6 +867,7 @@ def MIRR(*args) -> Function:
     """
     return Function("MIRR", args)
 
+
 def NOMINAL(*args) -> Function:
     """
     Calculates the annual nominal interest rate given the effective rate and number
@@ -772,6 +875,7 @@ def NOMINAL(*args) -> Function:
     Learn more: https//support.google.com/docs/answer/3093234
     """
     return Function("NOMINAL", args)
+
 
 def NPER(*args) -> Function:
     """
@@ -781,6 +885,7 @@ def NPER(*args) -> Function:
     """
     return Function("NPER", args)
 
+
 def NPV(*args) -> Function:
     """
     Calculates the net present value of an investment based on a series of periodic
@@ -788,6 +893,7 @@ def NPV(*args) -> Function:
     Learn more: https//support.google.com/docs/answer/3093184
     """
     return Function("NPV", args)
+
 
 def PDURATION(*args) -> Function:
     """
@@ -797,6 +903,7 @@ def PDURATION(*args) -> Function:
     """
     return Function("PDURATION", args)
 
+
 def PMT(*args) -> Function:
     """
     Calculates the periodic payment for an annuity investment based on constant-
@@ -804,6 +911,7 @@ def PMT(*args) -> Function:
     Learn more: https//support.google.com/docs/answer/3093185
     """
     return Function("PMT", args)
+
 
 def PPMT(*args) -> Function:
     """
@@ -813,6 +921,7 @@ def PPMT(*args) -> Function:
     """
     return Function("PPMT", args)
 
+
 def PRICE(*args) -> Function:
     """
     Calculates the price of a security paying periodic interest, such as a US
@@ -820,6 +929,7 @@ def PRICE(*args) -> Function:
     Learn more: https//support.google.com/docs/answer/3093188
     """
     return Function("PRICE", args)
+
 
 def PRICEDISC(*args) -> Function:
     """
@@ -829,6 +939,7 @@ def PRICEDISC(*args) -> Function:
     """
     return Function("PRICEDISC", args)
 
+
 def PRICEMAT(*args) -> Function:
     """
     Calculates the price of a security paying interest at maturity, based on
@@ -836,6 +947,7 @@ def PRICEMAT(*args) -> Function:
     Learn more: https//support.google.com/docs/answer/3093191
     """
     return Function("PRICEMAT", args)
+
 
 def PV(*args) -> Function:
     """
@@ -845,6 +957,7 @@ def PV(*args) -> Function:
     """
     return Function("PV", args)
 
+
 def RATE(*args) -> Function:
     """
     Calculates the interest rate of an annuity investment based on constant-amount
@@ -852,6 +965,7 @@ def RATE(*args) -> Function:
     Learn more: https//support.google.com/docs/answer/3093257
     """
     return Function("RATE", args)
+
 
 def RECEIVED(*args) -> Function:
     """
@@ -861,6 +975,7 @@ def RECEIVED(*args) -> Function:
     """
     return Function("RECEIVED", args)
 
+
 def RRI(*args) -> Function:
     """
     Returns the interest rate needed for an investment to reach a specific value
@@ -868,6 +983,7 @@ def RRI(*args) -> Function:
     Learn more: https//support.google.com/docs/answer/9368238.
     """
     return Function("RRI", args)
+
 
 def SLN(*args) -> Function:
     """
@@ -877,6 +993,7 @@ def SLN(*args) -> Function:
     """
     return Function("SLN", args)
 
+
 def SYD(*args) -> Function:
     """
     Calculates the depreciation of an asset for a specified period using the sum of
@@ -884,6 +1001,7 @@ def SYD(*args) -> Function:
     Learn more: https//support.google.com/docs/answer/3093261
     """
     return Function("SYD", args)
+
 
 def TBILLEQ(*args) -> Function:
     """
@@ -893,6 +1011,7 @@ def TBILLEQ(*args) -> Function:
     """
     return Function("TBILLEQ", args)
 
+
 def TBILLPRICE(*args) -> Function:
     """
     Calculates the price of a US Treasury Bill based on discount rate.
@@ -900,12 +1019,14 @@ def TBILLPRICE(*args) -> Function:
     """
     return Function("TBILLPRICE", args)
 
+
 def TBILLYIELD(*args) -> Function:
     """
     Calculates the yield of a US Treasury Bill based on price.
     Learn more: https//support.google.com/docs/answer/3093264
     """
     return Function("TBILLYIELD", args)
+
 
 def VDB(*args) -> Function:
     """
@@ -915,6 +1036,7 @@ def VDB(*args) -> Function:
     """
     return Function("VDB", args)
 
+
 def XIRR(*args) -> Function:
     """
     Calculates the internal rate of return of an investment based on a specified
@@ -922,6 +1044,7 @@ def XIRR(*args) -> Function:
     Learn more: https//support.google.com/docs/answer/3093266
     """
     return Function("XIRR", args)
+
 
 def XNPV(*args) -> Function:
     """
@@ -931,6 +1054,7 @@ def XNPV(*args) -> Function:
     """
     return Function("XNPV", args)
 
+
 def YIELD(*args) -> Function:
     """
     Calculates the annual yield of a security paying periodic interest, such as a US
@@ -938,6 +1062,7 @@ def YIELD(*args) -> Function:
     Learn more: https//support.google.com/docs/answer/3093255
     """
     return Function("YIELD", args)
+
 
 def YIELDDISC(*args) -> Function:
     """
@@ -947,6 +1072,7 @@ def YIELDDISC(*args) -> Function:
     """
     return Function("YIELDDISC", args)
 
+
 def YIELDMAT(*args) -> Function:
     """
     Calculates the annual yield of a security paying interest at maturity, based on
@@ -954,6 +1080,7 @@ def YIELDMAT(*args) -> Function:
     Learn more: https//support.google.com/docs/answer/9000132
     """
     return Function("YIELDMAT", args)
+
 
 def ARRAYFORMULA(*args) -> Function:
     """
@@ -963,12 +1090,14 @@ def ARRAYFORMULA(*args) -> Function:
     """
     return Function("ARRAYFORMULA", args)
 
+
 def DETECTLANGUAGE(*args) -> Function:
     """
     Identifies the language used in text within the specified range.
     Learn more: https//support.google.com/docs/answer/3093278
     """
     return Function("DETECTLANGUAGE", args)
+
 
 def GOOGLEFINANCE(*args) -> Function:
     """
@@ -977,12 +1106,14 @@ def GOOGLEFINANCE(*args) -> Function:
     """
     return Function("GOOGLEFINANCE", args)
 
+
 def GOOGLETRANSLATE(*args) -> Function:
     """
     Translates text from one language into another
     Learn more: https//support.google.com/docs/answer/3093331
     """
     return Function("GOOGLETRANSLATE", args)
+
 
 def IMAGE(*args) -> Function:
     """
@@ -991,12 +1122,14 @@ def IMAGE(*args) -> Function:
     """
     return Function("IMAGE", args)
 
+
 def QUERY(*args) -> Function:
     """
     Runs a Google Visualization API Query Language query across data.
     Learn more: https//support.google.com/docs/answer/3093343
     """
     return Function("QUERY", args)
+
 
 def SPARKLINE(*args) -> Function:
     """
@@ -1005,6 +1138,7 @@ def SPARKLINE(*args) -> Function:
     """
     return Function("SPARKLINE", args)
 
+
 def ERROR_TYPE(*args) -> Function:
     """
     Returns a number corresponding to the error value in a different cell.
@@ -1012,12 +1146,14 @@ def ERROR_TYPE(*args) -> Function:
     """
     return Function("ERROR_TYPE", args)
 
+
 def ISBLANK(*args) -> Function:
     """
     Checks whether the referenced cell is empty.
     Learn more: https//support.google.com/docs/answer/3093290
     """
     return Function("ISBLANK", args)
+
 
 def ISDATE(*args) -> Function:
     """
@@ -1027,12 +1163,14 @@ def ISDATE(*args) -> Function:
     """
     return Function("ISDATE", args)
 
+
 def ISEMAIL(*args) -> Function:
     """
     Checks whether a value is a valid email address.
     Learn more: https//support.google.com/docs/answer/3256503
     """
     return Function("ISEMAIL", args)
+
 
 def ISERR(*args) -> Function:
     """
@@ -1041,12 +1179,14 @@ def ISERR(*args) -> Function:
     """
     return Function("ISERR", args)
 
+
 def ISERROR(*args) -> Function:
     """
     Checks whether a value is an error.
     Learn more: https//support.google.com/docs/answer/3093349
     """
     return Function("ISERROR", args)
+
 
 def ISFORMULA(*args) -> Function:
     """
@@ -1055,12 +1195,14 @@ def ISFORMULA(*args) -> Function:
     """
     return Function("ISFORMULA", args)
 
+
 def ISLOGICAL(*args) -> Function:
     """
     Checks whether a value is `TRUE` or `FALSE`.
     Learn more: https//support.google.com/docs/answer/3093351
     """
     return Function("ISLOGICAL", args)
+
 
 def ISNA(*args) -> Function:
     """
@@ -1069,12 +1211,14 @@ def ISNA(*args) -> Function:
     """
     return Function("ISNA", args)
 
+
 def ISNONTEXT(*args) -> Function:
     """
     Checks whether a value is non-textual.
     Learn more: https//support.google.com/docs/answer/3093295
     """
     return Function("ISNONTEXT", args)
+
 
 def ISNUMBER(*args) -> Function:
     """
@@ -1083,12 +1227,14 @@ def ISNUMBER(*args) -> Function:
     """
     return Function("ISNUMBER", args)
 
+
 def ISREF(*args) -> Function:
     """
     Checks whether a value is a valid cell reference.
     Learn more: https//support.google.com/docs/answer/3093354
     """
     return Function("ISREF", args)
+
 
 def ISTEXT(*args) -> Function:
     """
@@ -1097,12 +1243,14 @@ def ISTEXT(*args) -> Function:
     """
     return Function("ISTEXT", args)
 
+
 def N(*args) -> Function:
     """
     Returns the argument provided as a number.
     Learn more: https//support.google.com/docs/answer/3093357
     """
     return Function("N", args)
+
 
 def NA(*args) -> Function:
     """
@@ -1111,6 +1259,7 @@ def NA(*args) -> Function:
     """
     return Function("NA", args)
 
+
 def TYPE(*args) -> Function:
     """
     Returns a number associated with the type of data passed into the function.
@@ -1118,12 +1267,14 @@ def TYPE(*args) -> Function:
     """
     return Function("TYPE", args)
 
+
 def CELL(*args) -> Function:
     """
     Returns the requested information about the specified cell.
     Learn more: https//support.google.com/docs/answer/3267071
     """
     return Function("CELL", args)
+
 
 def AND(*args) -> Function:
     """
@@ -1133,12 +1284,14 @@ def AND(*args) -> Function:
     """
     return Function("AND", args)
 
+
 def FALSE(*args) -> Function:
     """
     Returns the logical value `FALSE`.
     Learn more: https//support.google.com/docs/answer/3093302
     """
     return Function("FALSE", args)
+
 
 def IF(*args) -> Function:
     """
@@ -1148,6 +1301,7 @@ def IF(*args) -> Function:
     """
     return Function("IF", args)
 
+
 def IFERROR(*args) -> Function:
     """
     Returns the first argument if it is not an error value, otherwise returns the
@@ -1156,12 +1310,14 @@ def IFERROR(*args) -> Function:
     """
     return Function("IFERROR", args)
 
+
 def IFNA(*args) -> Function:
     """
     Evaluates a value. If the value is an #N/A error, returns the specified value.
     Learn more: https//support.google.com/docs/answer/9365944.
     """
     return Function("IFNA", args)
+
 
 def IFS(*args) -> Function:
     """
@@ -1171,6 +1327,7 @@ def IFS(*args) -> Function:
     """
     return Function("IFS", args)
 
+
 def NOT(*args) -> Function:
     """
     Returns the opposite of a logical value - `NOT(TRUE)` returns `FALSE`;
@@ -1179,6 +1336,7 @@ def NOT(*args) -> Function:
     """
     return Function("NOT", args)
 
+
 def OR(*args) -> Function:
     """
     Returns true if any of the provided arguments are logically true, and false if
@@ -1186,6 +1344,7 @@ def OR(*args) -> Function:
     Learn more: https//support.google.com/docs/answer/3093306
     """
     return Function("OR", args)
+
 
 def SWITCH(*args) -> Function:
     """
@@ -1196,12 +1355,14 @@ def SWITCH(*args) -> Function:
     """
     return Function("SWITCH", args)
 
+
 def TRUE(*args) -> Function:
     """
     Returns the logical value `TRUE`.
     Learn more: https//support.google.com/docs/answer/3093307
     """
     return Function("TRUE", args)
+
 
 def XOR(*args) -> Function:
     """
@@ -1211,12 +1372,14 @@ def XOR(*args) -> Function:
     """
     return Function("XOR", args)
 
+
 def ADDRESS(*args) -> Function:
     """
     Returns a cell reference as a string.
     Learn more: https//support.google.com/docs/answer/3093308
     """
     return Function("ADDRESS", args)
+
 
 def CHOOSE(*args) -> Function:
     """
@@ -1225,12 +1388,14 @@ def CHOOSE(*args) -> Function:
     """
     return Function("CHOOSE", args)
 
+
 def COLUMN(*args) -> Function:
     """
     Returns the column number of a specified cell, with `A=1`.
     Learn more: https//support.google.com/docs/answer/3093373
     """
     return Function("COLUMN", args)
+
 
 def COLUMNS(*args) -> Function:
     """
@@ -1239,12 +1404,14 @@ def COLUMNS(*args) -> Function:
     """
     return Function("COLUMNS", args)
 
+
 def FORMULATEXT(*args) -> Function:
     """
     Returns the formula as a string.
     Learn more: https//support.google.com/docs/answer/9365792.
     """
     return Function("FORMULATEXT", args)
+
 
 def GETPIVOTDATA(*args) -> Function:
     """
@@ -1254,6 +1421,7 @@ def GETPIVOTDATA(*args) -> Function:
     """
     return Function("GETPIVOTDATA", args)
 
+
 def HLOOKUP(*args) -> Function:
     """
     Horizontal lookup. Searches across the first row of a range for a key and
@@ -1262,6 +1430,7 @@ def HLOOKUP(*args) -> Function:
     """
     return Function("HLOOKUP", args)
 
+
 def INDEX(*args) -> Function:
     """
     Returns the content of a cell, specified by row and column offset.
@@ -1269,12 +1438,14 @@ def INDEX(*args) -> Function:
     """
     return Function("INDEX", args)
 
+
 def INDIRECT(*args) -> Function:
     """
     Returns a cell reference specified by a string.
     Learn more: https//support.google.com/docs/answer/3093377
     """
     return Function("INDIRECT", args)
+
 
 def LOOKUP(*args) -> Function:
     """
@@ -1284,6 +1455,7 @@ def LOOKUP(*args) -> Function:
     """
     return Function("LOOKUP", args)
 
+
 def MATCH(*args) -> Function:
     """
     Returns the relative position of an item in a range that matches a specified
@@ -1291,6 +1463,7 @@ def MATCH(*args) -> Function:
     Learn more: https//support.google.com/docs/answer/3093378
     """
     return Function("MATCH", args)
+
 
 def OFFSET(*args) -> Function:
     """
@@ -1300,6 +1473,7 @@ def OFFSET(*args) -> Function:
     """
     return Function("OFFSET", args)
 
+
 def ROW(*args) -> Function:
     """
     Returns the row number of a specified cell.
@@ -1307,12 +1481,14 @@ def ROW(*args) -> Function:
     """
     return Function("ROW", args)
 
+
 def ROWS(*args) -> Function:
     """
     Returns the number of rows in a specified array or range.
     Learn more: https//support.google.com/docs/answer/3093382
     """
     return Function("ROWS", args)
+
 
 def VLOOKUP(*args) -> Function:
     """
@@ -1322,12 +1498,14 @@ def VLOOKUP(*args) -> Function:
     """
     return Function("VLOOKUP", args)
 
+
 def ABS(*args) -> Function:
     """
     Returns the absolute value of a number.
     Learn more: https//support.google.com/docs/answer/3093459
     """
     return Function("ABS", args)
+
 
 def ACOS(*args) -> Function:
     """
@@ -1336,12 +1514,14 @@ def ACOS(*args) -> Function:
     """
     return Function("ACOS", args)
 
+
 def ACOSH(*args) -> Function:
     """
     Returns the inverse hyperbolic cosine of a number.
     Learn more: https//support.google.com/docs/answer/3093391
     """
     return Function("ACOSH", args)
+
 
 def ACOT(*args) -> Function:
     """
@@ -1351,12 +1531,14 @@ def ACOT(*args) -> Function:
     """
     return Function("ACOT", args)
 
+
 def ACOTH(*args) -> Function:
     """
     Returns the inverse hyperbolic cotangent of a value, in radians. Must not be
     between -1 and 1, inclusive. Learn more.
     """
     return Function("ACOTH", args)
+
 
 def ASIN(*args) -> Function:
     """
@@ -1365,6 +1547,7 @@ def ASIN(*args) -> Function:
     """
     return Function("ASIN", args)
 
+
 def ASINH(*args) -> Function:
     """
     Returns the inverse hyperbolic sine of a number.
@@ -1372,12 +1555,14 @@ def ASINH(*args) -> Function:
     """
     return Function("ASINH", args)
 
+
 def ATAN(*args) -> Function:
     """
     Returns the inverse tangent of a value, in radians.
     Learn more: https//support.google.com/docs/answer/3093395
     """
     return Function("ATAN", args)
+
 
 def ATAN2(*args) -> Function:
     """
@@ -1387,12 +1572,14 @@ def ATAN2(*args) -> Function:
     """
     return Function("ATAN2", args)
 
+
 def ATANH(*args) -> Function:
     """
     Returns the inverse hyperbolic tangent of a number.
     Learn more: https//support.google.com/docs/answer/3093397
     """
     return Function("ATANH", args)
+
 
 def BASE(*args) -> Function:
     """
@@ -1403,12 +1590,14 @@ def BASE(*args) -> Function:
     """
     return Function("BASE", args)
 
+
 def CEILING(*args) -> Function:
     """
     Rounds a number up to the nearest integer multiple of specified significance.
     Learn more: https//support.google.com/docs/answer/3093471
     """
     return Function("CEILING", args)
+
 
 def CEILING_MATH(*args) -> Function:
     """
@@ -1419,6 +1608,7 @@ def CEILING_MATH(*args) -> Function:
     """
     return Function("CEILING_MATH", args)
 
+
 def CEILING_PRECISE(*args) -> Function:
     """
     Rounds a number up to the nearest integer multiple of specified significance. If
@@ -1428,6 +1618,7 @@ def CEILING_PRECISE(*args) -> Function:
     """
     return Function("CEILING_PRECISE", args)
 
+
 def COMBIN(*args) -> Function:
     """
     Returns the number of ways to choose some number of objects from a pool of a
@@ -1435,6 +1626,7 @@ def COMBIN(*args) -> Function:
     Learn more: https//support.google.com/docs/answer/3093400
     """
     return Function("COMBIN", args)
+
 
 def COMBINA(*args) -> Function:
     """
@@ -1446,6 +1638,7 @@ def COMBINA(*args) -> Function:
     """
     return Function("COMBINA", args)
 
+
 def COS(*args) -> Function:
     """
     Returns the cosine of an angle provided in radians.
@@ -1453,12 +1646,14 @@ def COS(*args) -> Function:
     """
     return Function("COS", args)
 
+
 def COSH(*args) -> Function:
     """
     Returns the hyperbolic cosine of any real number.
     Learn more: https//support.google.com/docs/answer/3093477
     """
     return Function("COSH", args)
+
 
 def COT(*args) -> Function:
     """
@@ -1468,6 +1663,7 @@ def COT(*args) -> Function:
     """
     return Function("COT", args)
 
+
 def COTH(*args) -> Function:
     """
     Returns the hyperbolic cotangent of any real number.
@@ -1476,12 +1672,14 @@ def COTH(*args) -> Function:
     """
     return Function("COTH", args)
 
+
 def COUNTBLANK(*args) -> Function:
     """
     Returns the number of empty cells in a given range.
     Learn more: https//support.google.com/docs/answer/3093403
     """
     return Function("COUNTBLANK", args)
+
 
 def COUNTIF(*args) -> Function:
     """
@@ -1490,6 +1688,7 @@ def COUNTIF(*args) -> Function:
     """
     return Function("COUNTIF", args)
 
+
 def COUNTIFS(*args) -> Function:
     """
     Returns the count of a range depending on multiple criteria.
@@ -1497,12 +1696,14 @@ def COUNTIFS(*args) -> Function:
     """
     return Function("COUNTIFS", args)
 
+
 def COUNTUNIQUE(*args) -> Function:
     """
     Counts the number of unique values in a list of specified values and ranges.
     Learn more: https//support.google.com/docs/answer/3093405
     """
     return Function("COUNTUNIQUE", args)
+
 
 def CSC(*args) -> Function:
     """
@@ -1512,6 +1713,7 @@ def CSC(*args) -> Function:
     """
     return Function("CSC", args)
 
+
 def CSCH(*args) -> Function:
     """
     The CSCH function returns the hyperbolic cosecant of any real number.
@@ -1519,6 +1721,7 @@ def CSCH(*args) -> Function:
     https//support.google.comhttps://support.google.com/docs/answer/9116336.
     """
     return Function("CSCH", args)
+
 
 def DECIMAL(*args) -> Function:
     """
@@ -1529,12 +1732,14 @@ def DECIMAL(*args) -> Function:
     """
     return Function("DECIMAL", args)
 
+
 def DEGREES(*args) -> Function:
     """
     Converts an angle value in radians to degrees.
     Learn more: https//support.google.com/docs/answer/3093481
     """
     return Function("DEGREES", args)
+
 
 def ERFC(*args) -> Function:
     """
@@ -1543,9 +1748,11 @@ def ERFC(*args) -> Function:
     """
     return Function("ERFC", args)
 
+
 def ERFC_PRECISE(*args) -> Function:
     "See ERFC"
     return Function("ERFC_PRECISE", args)
+
 
 def EVEN(*args) -> Function:
     """
@@ -1554,12 +1761,14 @@ def EVEN(*args) -> Function:
     """
     return Function("EVEN", args)
 
+
 def EXP(*args) -> Function:
     """
     Returns Euler's number, e (~2.718) raised to a power.
     Learn more: https//support.google.com/docs/answer/3093411
     """
     return Function("EXP", args)
+
 
 def FACT(*args) -> Function:
     """
@@ -1568,6 +1777,7 @@ def FACT(*args) -> Function:
     """
     return Function("FACT", args)
 
+
 def FACTDOUBLE(*args) -> Function:
     """
     Returns the "double factorial" of a number.
@@ -1575,12 +1785,14 @@ def FACTDOUBLE(*args) -> Function:
     """
     return Function("FACTDOUBLE", args)
 
+
 def FLOOR(*args) -> Function:
     """
     Rounds a number down to the nearest integer multiple of specified significance.
     Learn more: https//support.google.com/docs/answer/3093487
     """
     return Function("FLOOR", args)
+
 
 def FLOOR_MATH(*args) -> Function:
     """
@@ -1591,6 +1803,7 @@ def FLOOR_MATH(*args) -> Function:
     """
     return Function("FLOOR_MATH", args)
 
+
 def FLOOR_PRECISE(*args) -> Function:
     """
     The FLOOR.PRECISE function rounds a number down to the nearest integer or
@@ -1600,6 +1813,7 @@ def FLOOR_PRECISE(*args) -> Function:
     """
     return Function("FLOOR_PRECISE", args)
 
+
 def GAMMALN(*args) -> Function:
     """
     Returns the the logarithm of a specified Gamma function, base e (Euler's
@@ -1608,9 +1822,11 @@ def GAMMALN(*args) -> Function:
     """
     return Function("GAMMALN", args)
 
+
 def GAMMALN_PRECISE(*args) -> Function:
     "See GAMMALN"
     return Function("GAMMALN_PRECISE", args)
+
 
 def GCD(*args) -> Function:
     """
@@ -1619,12 +1835,14 @@ def GCD(*args) -> Function:
     """
     return Function("GCD", args)
 
+
 def IMLN(*args) -> Function:
     """
     Returns the logarithm of a complex number, base e (Euler's number).
     Learn more: https//support.google.com/docs/answer/9000651
     """
     return Function("IMLN", args)
+
 
 def IMPOWER(*args) -> Function:
     """
@@ -1633,12 +1851,14 @@ def IMPOWER(*args) -> Function:
     """
     return Function("IMPOWER", args)
 
+
 def IMSQRT(*args) -> Function:
     """
     Computes the square root of a complex number.
     Learn more: https//support.google.com/docs/answer/9003168
     """
     return Function("IMSQRT", args)
+
 
 def INT(*args) -> Function:
     """
@@ -1647,6 +1867,7 @@ def INT(*args) -> Function:
     """
     return Function("INT", args)
 
+
 def ISEVEN(*args) -> Function:
     """
     Checks whether the provided value is even.
@@ -1654,9 +1875,11 @@ def ISEVEN(*args) -> Function:
     """
     return Function("ISEVEN", args)
 
+
 def ISO_CEILING(*args) -> Function:
     "See CEILING.PRECISE"
     return Function("ISO_CEILING", args)
+
 
 def ISODD(*args) -> Function:
     """
@@ -1665,12 +1888,14 @@ def ISODD(*args) -> Function:
     """
     return Function("ISODD", args)
 
+
 def LCM(*args) -> Function:
     """
     Returns the least common multiple of one or more integers.
     Learn more: https//support.google.com/docs/answer/3093421
     """
     return Function("LCM", args)
+
 
 def LN(*args) -> Function:
     """
@@ -1679,6 +1904,7 @@ def LN(*args) -> Function:
     """
     return Function("LN", args)
 
+
 def LOG(*args) -> Function:
     """
     Returns the the logarithm of a number given a base.
@@ -1686,12 +1912,14 @@ def LOG(*args) -> Function:
     """
     return Function("LOG", args)
 
+
 def LOG10(*args) -> Function:
     """
     Returns the the logarithm of a number, base 10.
     Learn more: https//support.google.com/docs/answer/3093423
     """
     return Function("LOG10", args)
+
 
 def MOD(*args) -> Function:
     """
@@ -1701,12 +1929,14 @@ def MOD(*args) -> Function:
     """
     return Function("MOD", args)
 
+
 def MROUND(*args) -> Function:
     """
     Rounds one number to the nearest integer multiple of another.
     Learn more: https//support.google.com/docs/answer/3093426
     """
     return Function("MROUND", args)
+
 
 def MULTINOMIAL(*args) -> Function:
     """
@@ -1716,12 +1946,14 @@ def MULTINOMIAL(*args) -> Function:
     """
     return Function("MULTINOMIAL", args)
 
+
 def MUNIT(*args) -> Function:
     """
     Returns a unit matrix of size dimension x dimension.
     Learn more: https//support.google.com/docs/answer/9368156.
     """
     return Function("MUNIT", args)
+
 
 def ODD(*args) -> Function:
     """
@@ -1730,12 +1962,14 @@ def ODD(*args) -> Function:
     """
     return Function("ODD", args)
 
+
 def PI(*args) -> Function:
     """
     Returns the value of Pi to 14 decimal places.
     Learn more: https//support.google.com/docs/answer/3093432
     """
     return Function("PI", args)
+
 
 def POWER(*args) -> Function:
     """
@@ -1744,12 +1978,14 @@ def POWER(*args) -> Function:
     """
     return Function("POWER", args)
 
+
 def PRODUCT(*args) -> Function:
     """
     Returns the result of multiplying a series of numbers together.
     Learn more: https//support.google.com/docs/answer/3093502
     """
     return Function("PRODUCT", args)
+
 
 def QUOTIENT(*args) -> Function:
     """
@@ -1758,12 +1994,14 @@ def QUOTIENT(*args) -> Function:
     """
     return Function("QUOTIENT", args)
 
+
 def RADIANS(*args) -> Function:
     """
     Converts an angle value in degrees to radians.
     Learn more: https//support.google.com/docs/answer/3093437
     """
     return Function("RADIANS", args)
+
 
 def RAND(*args) -> Function:
     """
@@ -1772,6 +2010,7 @@ def RAND(*args) -> Function:
     """
     return Function("RAND", args)
 
+
 def RANDARRAY(*args) -> Function:
     """
     Generates an array of random numbers between 0 and 1.
@@ -1779,12 +2018,14 @@ def RANDARRAY(*args) -> Function:
     """
     return Function("RANDARRAY", args)
 
+
 def RANDBETWEEN(*args) -> Function:
     """
     Returns a uniformly random integer between two values, inclusive.
     Learn more: https//support.google.com/docs/answer/3093507
     """
     return Function("RANDBETWEEN", args)
+
 
 def ROUND(*args) -> Function:
     """
@@ -1794,6 +2035,7 @@ def ROUND(*args) -> Function:
     """
     return Function("ROUND", args)
 
+
 def ROUNDDOWN(*args) -> Function:
     """
     Rounds a number to a certain number of decimal places, always rounding down to
@@ -1801,6 +2043,7 @@ def ROUNDDOWN(*args) -> Function:
     Learn more: https//support.google.com/docs/answer/3093442
     """
     return Function("ROUNDDOWN", args)
+
 
 def ROUNDUP(*args) -> Function:
     """
@@ -1810,12 +2053,14 @@ def ROUNDUP(*args) -> Function:
     """
     return Function("ROUNDUP", args)
 
+
 def SEC(*args) -> Function:
     """
     The SEC function returns the secant of an angle, measured in radians.
     Learn more: https//support.google.com/docs/answer/9116395.
     """
     return Function("SEC", args)
+
 
 def SECH(*args) -> Function:
     """
@@ -1824,12 +2069,14 @@ def SECH(*args) -> Function:
     """
     return Function("SECH", args)
 
+
 def SEQUENCE(*args) -> Function:
     """
     Returns an array of sequential numbers, such as 1, 2, 3, 4.
     Learn more: https//support.google.com/docs/answer/9368244.
     """
     return Function("SEQUENCE", args)
+
 
 def SERIESSUM(*args) -> Function:
     """
@@ -1839,6 +2086,7 @@ def SERIESSUM(*args) -> Function:
     """
     return Function("SERIESSUM", args)
 
+
 def SIGN(*args) -> Function:
     """
     Given an input number, returns `-1` if it is negative, `1` if positive, and `0`
@@ -1847,12 +2095,14 @@ def SIGN(*args) -> Function:
     """
     return Function("SIGN", args)
 
+
 def SIN(*args) -> Function:
     """
     Returns the sine of an angle provided in radians.
     Learn more: https//support.google.com/docs/answer/3093447
     """
     return Function("SIN", args)
+
 
 def SINH(*args) -> Function:
     """
@@ -1861,12 +2111,14 @@ def SINH(*args) -> Function:
     """
     return Function("SINH", args)
 
+
 def SQRT(*args) -> Function:
     """
     Returns the positive square root of a positive number.
     Learn more: https//support.google.com/docs/answer/3093577
     """
     return Function("SQRT", args)
+
 
 def SQRTPI(*args) -> Function:
     """
@@ -1876,6 +2128,7 @@ def SQRTPI(*args) -> Function:
     """
     return Function("SQRTPI", args)
 
+
 def SUBTOTAL(*args) -> Function:
     """
     Returns a subtotal for a vertical range of cells using a specified aggregation
@@ -1884,12 +2137,14 @@ def SUBTOTAL(*args) -> Function:
     """
     return Function("SUBTOTAL", args)
 
+
 def SUM(*args) -> Function:
     """
     Returns the sum of a series of numbers and/or cells.
     Learn more: https//support.google.com/docs/answer/3093669
     """
     return Function("SUM", args)
+
 
 def SUMIF(*args) -> Function:
     """
@@ -1898,12 +2153,14 @@ def SUMIF(*args) -> Function:
     """
     return Function("SUMIF", args)
 
+
 def SUMIFS(*args) -> Function:
     """
     Returns the sum of a range depending on multiple criteria.
     Learn more: https//support.google.com/docs/answer/3238496
     """
     return Function("SUMIFS", args)
+
 
 def SUMSQ(*args) -> Function:
     """
@@ -1912,6 +2169,7 @@ def SUMSQ(*args) -> Function:
     """
     return Function("SUMSQ", args)
 
+
 def TAN(*args) -> Function:
     """
     Returns the tangent of an angle provided in radians.
@@ -1919,12 +2177,14 @@ def TAN(*args) -> Function:
     """
     return Function("TAN", args)
 
+
 def TANH(*args) -> Function:
     """
     Returns the hyperbolic tangent of any real number.
     Learn more: https//support.google.com/docs/answer/3093755
     """
     return Function("TANH", args)
+
 
 def TRUNC(*args) -> Function:
     """
@@ -1934,12 +2194,14 @@ def TRUNC(*args) -> Function:
     """
     return Function("TRUNC", args)
 
+
 def ADD(*args) -> Function:
     """
     Returns the sum of two numbers. Equivalent to the `+` operator.
     Learn more: https//support.google.com/docs/answer/3093590
     """
     return Function("ADD", args)
+
 
 def CONCAT(*args) -> Function:
     """
@@ -1948,12 +2210,14 @@ def CONCAT(*args) -> Function:
     """
     return Function("CONCAT", args)
 
+
 def DIVIDE(*args) -> Function:
     """
     Returns one number divided by another. Equivalent to the `/` operator.
     Learn more: https//support.google.com/docs/answer/3093973
     """
     return Function("DIVIDE", args)
+
 
 def EQ(*args) -> Function:
     """
@@ -1963,6 +2227,7 @@ def EQ(*args) -> Function:
     """
     return Function("EQ", args)
 
+
 def GT(*args) -> Function:
     """
     Returns `TRUE` if the first argument is strictly greater than the second, and
@@ -1970,6 +2235,7 @@ def GT(*args) -> Function:
     Learn more: https//support.google.com/docs/answer/3098240
     """
     return Function("GT", args)
+
 
 def GTE(*args) -> Function:
     """
@@ -1979,6 +2245,7 @@ def GTE(*args) -> Function:
     """
     return Function("GTE", args)
 
+
 def LT(*args) -> Function:
     """
     Returns `TRUE` if the first argument is strictly less than the second, and
@@ -1986,6 +2253,7 @@ def LT(*args) -> Function:
     Learn more: https//support.google.com/docs/answer/3093596
     """
     return Function("LT", args)
+
 
 def LTE(*args) -> Function:
     """
@@ -1995,6 +2263,7 @@ def LTE(*args) -> Function:
     """
     return Function("LTE", args)
 
+
 def MINUS(*args) -> Function:
     """
     Returns the difference of two numbers. Equivalent to the `-` operator.
@@ -2002,12 +2271,14 @@ def MINUS(*args) -> Function:
     """
     return Function("MINUS", args)
 
+
 def MULTIPLY(*args) -> Function:
     """
     Returns the product of two numbers. Equivalent to the `*` operator.
     Learn more: https//support.google.com/docs/answer/3093978
     """
     return Function("MULTIPLY", args)
+
 
 def NE(*args) -> Function:
     """
@@ -2017,6 +2288,7 @@ def NE(*args) -> Function:
     """
     return Function("NE", args)
 
+
 def POW(*args) -> Function:
     """
     Returns a number raised to a power.
@@ -2024,12 +2296,14 @@ def POW(*args) -> Function:
     """
     return Function("POW", args)
 
+
 def UMINUS(*args) -> Function:
     """
     Returns a number with the sign reversed.
     Learn more: https//support.google.com/docs/answer/3093606
     """
     return Function("UMINUS", args)
+
 
 def UNARY_PERCENT(*args) -> Function:
     """
@@ -2039,12 +2313,14 @@ def UNARY_PERCENT(*args) -> Function:
     """
     return Function("UNARY_PERCENT", args)
 
+
 def UPLUS(*args) -> Function:
     """
     Returns a specified number, unchanged.
     Learn more: https//support.google.com/docs/answer/3093608
     """
     return Function("UPLUS", args)
+
 
 def AVEDEV(*args) -> Function:
     """
@@ -2054,12 +2330,14 @@ def AVEDEV(*args) -> Function:
     """
     return Function("AVEDEV", args)
 
+
 def AVERAGE(*args) -> Function:
     """
     Returns the numerical average value in a dataset, ignoring text.
     Learn more: https//support.google.com/docs/answer/3093615
     """
     return Function("AVERAGE", args)
+
 
 def AVERAGE_WEIGHTED(*args) -> Function:
     """
@@ -2069,12 +2347,14 @@ def AVERAGE_WEIGHTED(*args) -> Function:
     """
     return Function("AVERAGE_WEIGHTED", args)
 
+
 def AVERAGEA(*args) -> Function:
     """
     Returns the numerical average value in a dataset.
     Learn more: https//support.google.com/docs/answer/3093617
     """
     return Function("AVERAGEA", args)
+
 
 def AVERAGEIF(*args) -> Function:
     """
@@ -2083,12 +2363,14 @@ def AVERAGEIF(*args) -> Function:
     """
     return Function("AVERAGEIF", args)
 
+
 def AVERAGEIFS(*args) -> Function:
     """
     Returns the average of a range depending on multiple criteria.
     Learn more: https//support.google.com/docs/answer/3256534
     """
     return Function("AVERAGEIFS", args)
+
 
 def BETA_DIST(*args) -> Function:
     """
@@ -2099,6 +2381,7 @@ def BETA_DIST(*args) -> Function:
     """
     return Function("BETA_DIST", args)
 
+
 def BETA_INV(*args) -> Function:
     """
     Returns the value of the inverse beta distribution function for a given
@@ -2108,21 +2391,26 @@ def BETA_INV(*args) -> Function:
     """
     return Function("BETA_INV", args)
 
+
 def BETADIST(*args) -> Function:
     "See BETA.DIST."
     return Function("BETADIST", args)
+
 
 def BETAINV(*args) -> Function:
     "See BETA.INV"
     return Function("BETAINV", args)
 
+
 def BINOM_DIST(*args) -> Function:
     "See BINOMDIST"
     return Function("BINOM_DIST", args)
 
+
 def BINOM_INV(*args) -> Function:
     "See CRITBINOM"
     return Function("BINOM_INV", args)
+
 
 def BINOMDIST(*args) -> Function:
     """
@@ -2134,6 +2422,7 @@ def BINOMDIST(*args) -> Function:
     """
     return Function("BINOMDIST", args)
 
+
 def CHIDIST(*args) -> Function:
     """
     Calculates the right-tailed chi-squared distribution, often used in hypothesis
@@ -2142,12 +2431,14 @@ def CHIDIST(*args) -> Function:
     """
     return Function("CHIDIST", args)
 
+
 def CHIINV(*args) -> Function:
     """
     Calculates the inverse of the right-tailed chi-squared distribution.
     Learn more: https//support.google.com/docs/answer/7003198
     """
     return Function("CHIINV", args)
+
 
 def CHISQ_DIST(*args) -> Function:
     """
@@ -2157,6 +2448,7 @@ def CHISQ_DIST(*args) -> Function:
     """
     return Function("CHISQ_DIST", args)
 
+
 def CHISQ_DIST_RT(*args) -> Function:
     """
     Calculates the right-tailed chi-squared distribution, which is commonly used in
@@ -2165,12 +2457,14 @@ def CHISQ_DIST_RT(*args) -> Function:
     """
     return Function("CHISQ_DIST_RT", args)
 
+
 def CHISQ_INV(*args) -> Function:
     """
     Calculates the inverse of the left-tailed chi-squared distribution.
     Learn more: https//support.google.com/docs/answer/7004181
     """
     return Function("CHISQ_INV", args)
+
 
 def CHISQ_INV_RT(*args) -> Function:
     """
@@ -2179,9 +2473,11 @@ def CHISQ_INV_RT(*args) -> Function:
     """
     return Function("CHISQ_INV_RT", args)
 
+
 def CHISQ_TEST(*args) -> Function:
     "See CHITEST"
     return Function("CHISQ_TEST", args)
+
 
 def CHITEST(*args) -> Function:
     """
@@ -2192,9 +2488,11 @@ def CHITEST(*args) -> Function:
     """
     return Function("CHITEST", args)
 
+
 def CONFIDENCE(*args) -> Function:
     "See CONFIDENCE.NORM"
     return Function("CONFIDENCE", args)
+
 
 def CONFIDENCE_NORM(*args) -> Function:
     """
@@ -2204,6 +2502,7 @@ def CONFIDENCE_NORM(*args) -> Function:
     """
     return Function("CONFIDENCE_NORM", args)
 
+
 def CONFIDENCE_T(*args) -> Function:
     """
     Calculates the width of half the confidence interval for a Student’s
@@ -2212,12 +2511,14 @@ def CONFIDENCE_T(*args) -> Function:
     """
     return Function("CONFIDENCE_T", args)
 
+
 def CORREL(*args) -> Function:
     """
     Calculates r, the Pearson product-moment correlation coefficient of a dataset.
     Learn more: https//support.google.com/docs/answer/3093990
     """
     return Function("CORREL", args)
+
 
 def COUNT(*args) -> Function:
     """
@@ -2226,12 +2527,14 @@ def COUNT(*args) -> Function:
     """
     return Function("COUNT", args)
 
+
 def COUNTA(*args) -> Function:
     """
     Returns a count of the number of values in a dataset.
     Learn more: https//support.google.com/docs/answer/3093991
     """
     return Function("COUNTA", args)
+
 
 def COVAR(*args) -> Function:
     """
@@ -2240,9 +2543,11 @@ def COVAR(*args) -> Function:
     """
     return Function("COVAR", args)
 
+
 def COVARIANCE_P(*args) -> Function:
     "See COVAR"
     return Function("COVARIANCE_P", args)
+
 
 def COVARIANCE_S(*args) -> Function:
     """
@@ -2252,6 +2557,7 @@ def COVARIANCE_S(*args) -> Function:
     """
     return Function("COVARIANCE_S", args)
 
+
 def CRITBINOM(*args) -> Function:
     """
     Calculates the smallest value for which the cumulative binomial distribution is
@@ -2260,12 +2566,14 @@ def CRITBINOM(*args) -> Function:
     """
     return Function("CRITBINOM", args)
 
+
 def DEVSQ(*args) -> Function:
     """
     Calculates the sum of squares of deviations based on a sample.
     Learn more: https//support.google.com/docs/answer/3093625
     """
     return Function("DEVSQ", args)
+
 
 def EXPON_DIST(*args) -> Function:
     """
@@ -2276,9 +2584,11 @@ def EXPON_DIST(*args) -> Function:
     """
     return Function("EXPON_DIST", args)
 
+
 def EXPONDIST(*args) -> Function:
     "See EXPON.DIST"
     return Function("EXPONDIST", args)
+
 
 def F_DIST(*args) -> Function:
     """
@@ -2289,6 +2599,7 @@ def F_DIST(*args) -> Function:
     """
     return Function("F_DIST", args)
 
+
 def F_DIST_RT(*args) -> Function:
     """
     Calculates the right-tailed F probability distribution (degree of diversity) for
@@ -2298,6 +2609,7 @@ def F_DIST_RT(*args) -> Function:
     """
     return Function("F_DIST_RT", args)
 
+
 def F_INV(*args) -> Function:
     """
     Calculates the inverse of the left-tailed F probability distribution. Also
@@ -2305,6 +2617,7 @@ def F_INV(*args) -> Function:
     Learn more: https//support.google.com/docs/answer/7004265
     """
     return Function("F_INV", args)
+
 
 def F_INV_RT(*args) -> Function:
     """
@@ -2314,17 +2627,21 @@ def F_INV_RT(*args) -> Function:
     """
     return Function("F_INV_RT", args)
 
+
 def F_TEST(*args) -> Function:
     "See FTEST."
     return Function("F_TEST", args)
+
 
 def FDIST(*args) -> Function:
     "See F.DIST.RT."
     return Function("FDIST", args)
 
+
 def FINV(*args) -> Function:
     "See F.INV.RT"
     return Function("FINV", args)
+
 
 def FISHER(*args) -> Function:
     """
@@ -2333,12 +2650,14 @@ def FISHER(*args) -> Function:
     """
     return Function("FISHER", args)
 
+
 def FISHERINV(*args) -> Function:
     """
     Returns the inverse Fisher transformation of a specified value.
     Learn more: https//support.google.com/docs/answer/3093998
     """
     return Function("FISHERINV", args)
+
 
 def FORECAST(*args) -> Function:
     """
@@ -2348,9 +2667,11 @@ def FORECAST(*args) -> Function:
     """
     return Function("FORECAST", args)
 
+
 def FORECAST_LINEAR(*args) -> Function:
     "See FORECAST"
     return Function("FORECAST_LINEAR", args)
+
 
 def FTEST(*args) -> Function:
     """
@@ -2361,12 +2682,14 @@ def FTEST(*args) -> Function:
     """
     return Function("FTEST", args)
 
+
 def GAMMA(*args) -> Function:
     """
     Returns the Gamma function evaluated at the specified value.
     Learn more: https//support.google.com/docs/answer/9365856.
     """
     return Function("GAMMA", args)
+
 
 def GAMMA_DIST(*args) -> Function:
     """
@@ -2375,6 +2698,7 @@ def GAMMA_DIST(*args) -> Function:
     Learn more: https//support.google.com/docs/answer/7013990
     """
     return Function("GAMMA_DIST", args)
+
 
 def GAMMA_INV(*args) -> Function:
     """
@@ -2385,13 +2709,16 @@ def GAMMA_INV(*args) -> Function:
     """
     return Function("GAMMA_INV", args)
 
+
 def GAMMADIST(*args) -> Function:
     "See GAMMA.DIST"
     return Function("GAMMADIST", args)
 
+
 def GAMMAINV(*args) -> Function:
     "See GAMMA.INV."
     return Function("GAMMAINV", args)
+
 
 def GAUSS(*args) -> Function:
     """
@@ -2402,12 +2729,14 @@ def GAUSS(*args) -> Function:
     """
     return Function("GAUSS", args)
 
+
 def GEOMEAN(*args) -> Function:
     """
     Calculates the geometric mean of a dataset.
     Learn more: https//support.google.com/docs/answer/3094001
     """
     return Function("GEOMEAN", args)
+
 
 def HARMEAN(*args) -> Function:
     """
@@ -2416,9 +2745,11 @@ def HARMEAN(*args) -> Function:
     """
     return Function("HARMEAN", args)
 
+
 def HYPGEOM_DIST(*args) -> Function:
     "See HYPGEOMDIST"
     return Function("HYPGEOM_DIST", args)
+
 
 def HYPGEOMDIST(*args) -> Function:
     """
@@ -2429,6 +2760,7 @@ def HYPGEOMDIST(*args) -> Function:
     """
     return Function("HYPGEOMDIST", args)
 
+
 def INTERCEPT(*args) -> Function:
     """
     Calculates the y-value at which the line resulting from linear regression of a
@@ -2436,6 +2768,7 @@ def INTERCEPT(*args) -> Function:
     Learn more: https//support.google.com/docs/answer/3093632
     """
     return Function("INTERCEPT", args)
+
 
 def KURT(*args) -> Function:
     """
@@ -2445,12 +2778,14 @@ def KURT(*args) -> Function:
     """
     return Function("KURT", args)
 
+
 def LARGE(*args) -> Function:
     """
     Returns the nth largest element from a data set, where n is user-defined.
     Learn more: https//support.google.com/docs/answer/3094008
     """
     return Function("LARGE", args)
+
 
 def LOGINV(*args) -> Function:
     """
@@ -2460,13 +2795,16 @@ def LOGINV(*args) -> Function:
     """
     return Function("LOGINV", args)
 
+
 def LOGNORM_DIST(*args) -> Function:
     "See LOGNORMDIST"
     return Function("LOGNORM_DIST", args)
 
+
 def LOGNORM_INV(*args) -> Function:
     "See LOGINV"
     return Function("LOGNORM_INV", args)
+
 
 def LOGNORMDIST(*args) -> Function:
     """
@@ -2476,12 +2814,14 @@ def LOGNORMDIST(*args) -> Function:
     """
     return Function("LOGNORMDIST", args)
 
+
 def MAX(*args) -> Function:
     """
     Returns the maximum value in a numeric dataset.
     Learn more: https//support.google.com/docs/answer/3094013
     """
     return Function("MAX", args)
+
 
 def MAXA(*args) -> Function:
     """
@@ -2490,12 +2830,14 @@ def MAXA(*args) -> Function:
     """
     return Function("MAXA", args)
 
+
 def MAXIFS(*args) -> Function:
     """
     Returns the maximum value in a range of cells, filtered by a set of criteria.
     Learn more: https//support.google.com/docs/answer/7013817
     """
     return Function("MAXIFS", args)
+
 
 def MEDIAN(*args) -> Function:
     """
@@ -2504,12 +2846,14 @@ def MEDIAN(*args) -> Function:
     """
     return Function("MEDIAN", args)
 
+
 def MIN(*args) -> Function:
     """
     Returns the minimum value in a numeric dataset.
     Learn more: https//support.google.com/docs/answer/3094017
     """
     return Function("MIN", args)
+
 
 def MINA(*args) -> Function:
     """
@@ -2518,12 +2862,14 @@ def MINA(*args) -> Function:
     """
     return Function("MINA", args)
 
+
 def MINIFS(*args) -> Function:
     """
     Returns the minimum value in a range of cells, filtered by a set of criteria.
     Learn more: https//support.google.com/docs/answer/7014063
     """
     return Function("MINIFS", args)
+
 
 def MODE(*args) -> Function:
     """
@@ -2532,6 +2878,7 @@ def MODE(*args) -> Function:
     """
     return Function("MODE", args)
 
+
 def MODE_MULT(*args) -> Function:
     """
     Returns the most commonly occurring values in a dataset.
@@ -2539,13 +2886,16 @@ def MODE_MULT(*args) -> Function:
     """
     return Function("MODE_MULT", args)
 
+
 def MODE_SNGL(*args) -> Function:
     "See MODE"
     return Function("MODE_SNGL", args)
 
+
 def NEGBINOM_DIST(*args) -> Function:
     "See NEGBINOMDIST"
     return Function("NEGBINOM_DIST", args)
+
 
 def NEGBINOMDIST(*args) -> Function:
     """
@@ -2556,21 +2906,26 @@ def NEGBINOMDIST(*args) -> Function:
     """
     return Function("NEGBINOMDIST", args)
 
+
 def NORM_DIST(*args) -> Function:
     "See NORMDIST"
     return Function("NORM_DIST", args)
+
 
 def NORM_INV(*args) -> Function:
     "See NORMINV"
     return Function("NORM_INV", args)
 
+
 def NORM_S_DIST(*args) -> Function:
     "See NORMSDIST"
     return Function("NORM_S_DIST", args)
 
+
 def NORM_S_INV(*args) -> Function:
     "See NORMSINV"
     return Function("NORM_S_INV", args)
+
 
 def NORMDIST(*args) -> Function:
     """
@@ -2580,6 +2935,7 @@ def NORMDIST(*args) -> Function:
     """
     return Function("NORMDIST", args)
 
+
 def NORMINV(*args) -> Function:
     """
     Returns the value of the inverse normal distribution function for a specified
@@ -2587,6 +2943,7 @@ def NORMINV(*args) -> Function:
     Learn more: https//support.google.com/docs/answer/3094022
     """
     return Function("NORMINV", args)
+
 
 def NORMSDIST(*args) -> Function:
     """
@@ -2596,6 +2953,7 @@ def NORMSDIST(*args) -> Function:
     """
     return Function("NORMSDIST", args)
 
+
 def NORMSINV(*args) -> Function:
     """
     Returns the value of the inverse standard normal distribution function for a
@@ -2604,12 +2962,14 @@ def NORMSINV(*args) -> Function:
     """
     return Function("NORMSINV", args)
 
+
 def PEARSON(*args) -> Function:
     """
     Calculates r, the Pearson product-moment correlation coefficient of a dataset.
     Learn more: https//support.google.com/docs/answer/3094092
     """
     return Function("PEARSON", args)
+
 
 def PERCENTILE(*args) -> Function:
     """
@@ -2618,6 +2978,7 @@ def PERCENTILE(*args) -> Function:
     """
     return Function("PERCENTILE", args)
 
+
 def PERCENTILE_EXC(*args) -> Function:
     """
     Returns the value at a given percentile of a dataset, exclusive of 0 and 1.
@@ -2625,9 +2986,11 @@ def PERCENTILE_EXC(*args) -> Function:
     """
     return Function("PERCENTILE_EXC", args)
 
+
 def PERCENTILE_INC(*args) -> Function:
     "See PERCENTILE"
     return Function("PERCENTILE_INC", args)
+
 
 def PERCENTRANK(*args) -> Function:
     """
@@ -2635,6 +2998,7 @@ def PERCENTRANK(*args) -> Function:
     Learn more: https//support.google.com/docs/answer/3094095
     """
     return Function("PERCENTRANK", args)
+
 
 def PERCENTRANK_EXC(*args) -> Function:
     """
@@ -2644,6 +3008,7 @@ def PERCENTRANK_EXC(*args) -> Function:
     """
     return Function("PERCENTRANK_EXC", args)
 
+
 def PERCENTRANK_INC(*args) -> Function:
     """
     Returns the percentage rank (percentile) from 0 to 1 inclusive of a specified
@@ -2651,6 +3016,7 @@ def PERCENTRANK_INC(*args) -> Function:
     Learn more: https//support.google.com/docs/answer/3267360
     """
     return Function("PERCENTRANK_INC", args)
+
 
 def PERMUTATIONA(*args) -> Function:
     """
@@ -2660,6 +3026,7 @@ def PERMUTATIONA(*args) -> Function:
     """
     return Function("PERMUTATIONA", args)
 
+
 def PERMUT(*args) -> Function:
     """
     Returns the number of ways to choose some number of objects from a pool of a
@@ -2667,6 +3034,7 @@ def PERMUT(*args) -> Function:
     Learn more: https//support.google.com/docs/answer/3094036
     """
     return Function("PERMUT", args)
+
 
 def PHI(*args) -> Function:
     """
@@ -2676,9 +3044,11 @@ def PHI(*args) -> Function:
     """
     return Function("PHI", args)
 
+
 def POISSON(*args) -> Function:
     "See POISSON.DIST"
     return Function("POISSON", args)
+
 
 def POISSON_DIST(*args) -> Function:
     """
@@ -2689,6 +3059,7 @@ def POISSON_DIST(*args) -> Function:
     """
     return Function("POISSON_DIST", args)
 
+
 def PROB(*args) -> Function:
     """
     Given a set of values and corresponding probabilities, calculates the
@@ -2697,12 +3068,14 @@ def PROB(*args) -> Function:
     """
     return Function("PROB", args)
 
+
 def QUARTILE(*args) -> Function:
     """
     Returns a value nearest to a specified quartile of a dataset.
     Learn more: https//support.google.com/docs/answer/3094041
     """
     return Function("QUARTILE", args)
+
 
 def QUARTILE_EXC(*args) -> Function:
     """
@@ -2711,9 +3084,11 @@ def QUARTILE_EXC(*args) -> Function:
     """
     return Function("QUARTILE_EXC", args)
 
+
 def QUARTILE_INC(*args) -> Function:
     "See QUARTILE"
     return Function("QUARTILE_INC", args)
+
 
 def RANK(*args) -> Function:
     """
@@ -2721,6 +3096,7 @@ def RANK(*args) -> Function:
     Learn more: https//support.google.com/docs/answer/3094098
     """
     return Function("RANK", args)
+
 
 def RANK_AVG(*args) -> Function:
     """
@@ -2731,6 +3107,7 @@ def RANK_AVG(*args) -> Function:
     """
     return Function("RANK_AVG", args)
 
+
 def RANK_EQ(*args) -> Function:
     """
     Returns the rank of a specified value in a dataset. If there is more than one
@@ -2740,6 +3117,7 @@ def RANK_EQ(*args) -> Function:
     """
     return Function("RANK_EQ", args)
 
+
 def RSQ(*args) -> Function:
     """
     Calculates the square of r, the Pearson product-moment correlation coefficient
@@ -2747,6 +3125,7 @@ def RSQ(*args) -> Function:
     Learn more: https//support.google.com/docs/answer/3094099
     """
     return Function("RSQ", args)
+
 
 def SKEW(*args) -> Function:
     """
@@ -2756,12 +3135,14 @@ def SKEW(*args) -> Function:
     """
     return Function("SKEW", args)
 
+
 def SKEW_P(*args) -> Function:
     """
     Calculates the skewness of a dataset that represents the entire population.
     Learn more: https//support.google.com/docs/answer/9368569.
     """
     return Function("SKEW_P", args)
+
 
 def SLOPE(*args) -> Function:
     """
@@ -2770,12 +3151,14 @@ def SLOPE(*args) -> Function:
     """
     return Function("SLOPE", args)
 
+
 def SMALL(*args) -> Function:
     """
     Returns the nth smallest element from a data set, where n is user-defined.
     Learn more: https//support.google.com/docs/answer/3094050
     """
     return Function("SMALL", args)
+
 
 def STANDARDIZE(*args) -> Function:
     """
@@ -2785,6 +3168,7 @@ def STANDARDIZE(*args) -> Function:
     """
     return Function("STANDARDIZE", args)
 
+
 def STDEV(*args) -> Function:
     """
     Calculates the standard deviation based on a sample.
@@ -2792,13 +3176,16 @@ def STDEV(*args) -> Function:
     """
     return Function("STDEV", args)
 
+
 def STDEV_P(*args) -> Function:
     "See STDEVP"
     return Function("STDEV_P", args)
 
+
 def STDEV_S(*args) -> Function:
     "See STDEV"
     return Function("STDEV_S", args)
+
 
 def STDEVA(*args) -> Function:
     """
@@ -2808,12 +3195,14 @@ def STDEVA(*args) -> Function:
     """
     return Function("STDEVA", args)
 
+
 def STDEVP(*args) -> Function:
     """
     Calculates the standard deviation based on an entire population.
     Learn more: https//support.google.com/docs/answer/3094105
     """
     return Function("STDEVP", args)
+
 
 def STDEVPA(*args) -> Function:
     """
@@ -2823,6 +3212,7 @@ def STDEVPA(*args) -> Function:
     """
     return Function("STDEVPA", args)
 
+
 def STEYX(*args) -> Function:
     """
     Calculates the standard error of the predicted y-value for each x in the
@@ -2831,12 +3221,14 @@ def STEYX(*args) -> Function:
     """
     return Function("STEYX", args)
 
+
 def T_DIST(*args) -> Function:
     """
     Returns the right tailed Student distribution for a value x.
     Learn more: https//support.google.com/docs/answer/9369014.
     """
     return Function("T_DIST", args)
+
 
 def T_DIST_2T(*args) -> Function:
     """
@@ -2845,12 +3237,14 @@ def T_DIST_2T(*args) -> Function:
     """
     return Function("T_DIST_2T", args)
 
+
 def T_DIST_RT(*args) -> Function:
     """
     Returns the right tailed Student distribution for a value x.
     Learn more: https//support.google.com/docs/answer/9369017.
     """
     return Function("T_DIST_RT", args)
+
 
 def T_INV(*args) -> Function:
     """
@@ -2859,12 +3253,14 @@ def T_INV(*args) -> Function:
     """
     return Function("T_INV", args)
 
+
 def T_INV_2T(*args) -> Function:
     """
     Calculates the inverse of the two-tailed TDIST function.
     Learn more: https//support.google.com/docs/answer/6055811
     """
     return Function("T_INV_2T", args)
+
 
 def T_TEST(*args) -> Function:
     """
@@ -2876,6 +3272,7 @@ def T_TEST(*args) -> Function:
     """
     return Function("T_TEST", args)
 
+
 def TDIST(*args) -> Function:
     """
     Calculates the probability for Student's t-distribution with a given input (x).
@@ -2883,9 +3280,11 @@ def TDIST(*args) -> Function:
     """
     return Function("TDIST", args)
 
+
 def TINV(*args) -> Function:
     "See T.INV.2T"
     return Function("TINV", args)
+
 
 def TRIMMEAN(*args) -> Function:
     """
@@ -2895,9 +3294,11 @@ def TRIMMEAN(*args) -> Function:
     """
     return Function("TRIMMEAN", args)
 
+
 def TTEST(*args) -> Function:
     "See T.TEST."
     return Function("TTEST", args)
+
 
 def VAR(*args) -> Function:
     """
@@ -2906,13 +3307,16 @@ def VAR(*args) -> Function:
     """
     return Function("VAR", args)
 
+
 def VAR_P(*args) -> Function:
     "See VARP"
     return Function("VAR_P", args)
 
+
 def VAR_S(*args) -> Function:
     "See VAR"
     return Function("VAR_S", args)
+
 
 def VARA(*args) -> Function:
     """
@@ -2922,12 +3326,14 @@ def VARA(*args) -> Function:
     """
     return Function("VARA", args)
 
+
 def VARP(*args) -> Function:
     """
     Calculates the variance based on an entire population.
     Learn more: https//support.google.com/docs/answer/3094113
     """
     return Function("VARP", args)
+
 
 def VARPA(*args) -> Function:
     """
@@ -2937,6 +3343,7 @@ def VARPA(*args) -> Function:
     """
     return Function("VARPA", args)
 
+
 def WEIBULL(*args) -> Function:
     """
     Returns the value of the Weibull distribution function (or Weibull cumulative
@@ -2945,9 +3352,11 @@ def WEIBULL(*args) -> Function:
     """
     return Function("WEIBULL", args)
 
+
 def WEIBULL_DIST(*args) -> Function:
     "See WEIBULL"
     return Function("WEIBULL_DIST", args)
+
 
 def Z_TEST(*args) -> Function:
     """
@@ -2957,9 +3366,11 @@ def Z_TEST(*args) -> Function:
     """
     return Function("Z_TEST", args)
 
+
 def ZTEST(*args) -> Function:
     "See Z.TEST."
     return Function("ZTEST", args)
+
 
 def ARABIC(*args) -> Function:
     """
@@ -2967,6 +3378,7 @@ def ARABIC(*args) -> Function:
     Learn more: https//support.google.com/docs/answer/3238301
     """
     return Function("ARABIC", args)
+
 
 def ASC(*args) -> Function:
     """
@@ -2977,6 +3389,7 @@ def ASC(*args) -> Function:
     """
     return Function("ASC", args)
 
+
 def CHAR(*args) -> Function:
     """
     Convert a number into a character according to the current Unicode table.
@@ -2984,12 +3397,14 @@ def CHAR(*args) -> Function:
     """
     return Function("CHAR", args)
 
+
 def CLEAN(*args) -> Function:
     """
     Returns the text with the non-printable ASCII characters removed.
     Learn more: https//support.google.com/docs/answer/3267340
     """
     return Function("CLEAN", args)
+
 
 def CODE(*args) -> Function:
     """
@@ -2999,12 +3414,14 @@ def CODE(*args) -> Function:
     """
     return Function("CODE", args)
 
+
 def CONCATENATE(*args) -> Function:
     """
     Appends strings to one another.
     Learn more: https//support.google.com/docs/answer/3094123
     """
     return Function("CONCATENATE", args)
+
 
 def DOLLAR(*args) -> Function:
     """
@@ -3013,6 +3430,7 @@ def DOLLAR(*args) -> Function:
     """
     return Function("DOLLAR", args)
 
+
 def EXACT(*args) -> Function:
     """
     Tests whether two strings are identical.
@@ -3020,12 +3438,14 @@ def EXACT(*args) -> Function:
     """
     return Function("EXACT", args)
 
+
 def FIND(*args) -> Function:
     """
     Returns the position at which a string is first found within text.
     Learn more: https//support.google.com/docs/answer/3094126
     """
     return Function("FIND", args)
+
 
 def FINDB(*args) -> Function:
     """
@@ -3035,12 +3455,14 @@ def FINDB(*args) -> Function:
     """
     return Function("FINDB", args)
 
+
 def FIXED(*args) -> Function:
     """
     Formats a number with a fixed number of decimal places.
     Learn more: https//support.google.com/docs/answer/3094075
     """
     return Function("FIXED", args)
+
 
 def JOIN(*args) -> Function:
     """
@@ -3050,12 +3472,14 @@ def JOIN(*args) -> Function:
     """
     return Function("JOIN", args)
 
+
 def LEFT(*args) -> Function:
     """
     Returns a substring from the beginning of a specified string.
     Learn more: https//support.google.com/docs/answer/3094079
     """
     return Function("LEFT", args)
+
 
 def LEFTB(*args) -> Function:
     """
@@ -3064,12 +3488,14 @@ def LEFTB(*args) -> Function:
     """
     return Function("LEFTB", args)
 
+
 def LEN(*args) -> Function:
     """
     Returns the length of a string.
     Learn more: https//support.google.com/docs/answer/3094081
     """
     return Function("LEN", args)
+
 
 def LENB(*args) -> Function:
     """
@@ -3078,6 +3504,7 @@ def LENB(*args) -> Function:
     """
     return Function("LENB", args)
 
+
 def LOWER(*args) -> Function:
     """
     Converts a specified string to lowercase.
@@ -3085,12 +3512,14 @@ def LOWER(*args) -> Function:
     """
     return Function("LOWER", args)
 
+
 def MID(*args) -> Function:
     """
     Returns a segment of a string.
     Learn more: https//support.google.com/docs/answer/3094129
     """
     return Function("MID", args)
+
 
 def MIDB(*args) -> Function:
     """
@@ -3100,12 +3529,14 @@ def MIDB(*args) -> Function:
     """
     return Function("MIDB", args)
 
+
 def PROPER(*args) -> Function:
     """
     Capitalizes each word in a specified string.
     Learn more: https//support.google.com/docs/answer/3094133
     """
     return Function("PROPER", args)
+
 
 def REGEXEXTRACT(*args) -> Function:
     """
@@ -3114,12 +3545,14 @@ def REGEXEXTRACT(*args) -> Function:
     """
     return Function("REGEXEXTRACT", args)
 
+
 def REGEXMATCH(*args) -> Function:
     """
     Whether a piece of text matches a regular expression.
     Learn more: https//support.google.com/docs/answer/3098292
     """
     return Function("REGEXMATCH", args)
+
 
 def REGEXREPLACE(*args) -> Function:
     """
@@ -3129,12 +3562,14 @@ def REGEXREPLACE(*args) -> Function:
     """
     return Function("REGEXREPLACE", args)
 
+
 def REPLACE(*args) -> Function:
     """
     Replaces part of a text string with a different text string.
     Learn more: https//support.google.com/docs/answer/3098247
     """
     return Function("REPLACE", args)
+
 
 def REPLACEB(*args) -> Function:
     """
@@ -3144,12 +3579,14 @@ def REPLACEB(*args) -> Function:
     """
     return Function("REPLACEB", args)
 
+
 def REPT(*args) -> Function:
     """
     Returns specified text repeated a number of times.
     Learn more: https//support.google.com/docs/answer/3094134
     """
     return Function("REPT", args)
+
 
 def RIGHT(*args) -> Function:
     """
@@ -3158,12 +3595,14 @@ def RIGHT(*args) -> Function:
     """
     return Function("RIGHT", args)
 
+
 def RIGHTB(*args) -> Function:
     """
     Returns the right portion of a string up to a certain number of bytes.
     Learn more: https//support.google.com/docs/answer/9367697.
     """
     return Function("RIGHTB", args)
+
 
 def ROMAN(*args) -> Function:
     """
@@ -3172,12 +3611,14 @@ def ROMAN(*args) -> Function:
     """
     return Function("ROMAN", args)
 
+
 def SEARCH(*args) -> Function:
     """
     Returns the position at which a string is first found within text.
     Learn more: https//support.google.com/docs/answer/3094154
     """
     return Function("SEARCH", args)
+
 
 def SEARCHB(*args) -> Function:
     """
@@ -3187,6 +3628,7 @@ def SEARCHB(*args) -> Function:
     """
     return Function("SEARCHB", args)
 
+
 def SPLIT(*args) -> Function:
     """
     Divides text around a specified character or string, and puts each fragment into
@@ -3195,12 +3637,14 @@ def SPLIT(*args) -> Function:
     """
     return Function("SPLIT", args)
 
+
 def SUBSTITUTE(*args) -> Function:
     """
     Replaces existing text with new text in a string.
     Learn more: https//support.google.com/docs/answer/3094215
     """
     return Function("SUBSTITUTE", args)
+
 
 def T(*args) -> Function:
     """
@@ -3209,12 +3653,14 @@ def T(*args) -> Function:
     """
     return Function("T", args)
 
+
 def TEXT(*args) -> Function:
     """
     Converts a number into text according to a specified format.
     Learn more: https//support.google.com/docs/answer/3094139
     """
     return Function("TEXT", args)
+
 
 def TEXTJOIN(*args) -> Function:
     """
@@ -3224,6 +3670,7 @@ def TEXTJOIN(*args) -> Function:
     """
     return Function("TEXTJOIN", args)
 
+
 def TRIM(*args) -> Function:
     """
     Removes leading and trailing spaces in a specified string.
@@ -3231,12 +3678,14 @@ def TRIM(*args) -> Function:
     """
     return Function("TRIM", args)
 
+
 def UNICHAR(*args) -> Function:
     """
     Returns the Unicode character for a number.
     Learn more: https//support.google.com/docs/answer/9369024.
     """
     return Function("UNICHAR", args)
+
 
 def UNICODE(*args) -> Function:
     """
@@ -3246,12 +3695,14 @@ def UNICODE(*args) -> Function:
     """
     return Function("UNICODE", args)
 
+
 def UPPER(*args) -> Function:
     """
     Converts a specified string to uppercase.
     Learn more: https//support.google.com/docs/answer/3094219
     """
     return Function("UPPER", args)
+
 
 def VALUE(*args) -> Function:
     """
@@ -3261,6 +3712,7 @@ def VALUE(*args) -> Function:
     """
     return Function("VALUE", args)
 
+
 def DAVERAGE(*args) -> Function:
     """
     Returns the average of a set of values selected from a database table-like array
@@ -3268,6 +3720,7 @@ def DAVERAGE(*args) -> Function:
     Learn more: https//support.google.com/docs/answer/3094144
     """
     return Function("DAVERAGE", args)
+
 
 def DCOUNT(*args) -> Function:
     """
@@ -3277,6 +3730,7 @@ def DCOUNT(*args) -> Function:
     """
     return Function("DCOUNT", args)
 
+
 def DCOUNTA(*args) -> Function:
     """
     Counts values, including text, selected from a database table-like array or
@@ -3284,6 +3738,7 @@ def DCOUNTA(*args) -> Function:
     Learn more: https//support.google.com/docs/answer/3094147
     """
     return Function("DCOUNTA", args)
+
 
 def DGET(*args) -> Function:
     """
@@ -3293,6 +3748,7 @@ def DGET(*args) -> Function:
     """
     return Function("DGET", args)
 
+
 def DMAX(*args) -> Function:
     """
     Returns the maximum value selected from a database table-like array or range
@@ -3300,6 +3756,7 @@ def DMAX(*args) -> Function:
     Learn more: https//support.google.com/docs/answer/3094227
     """
     return Function("DMAX", args)
+
 
 def DMIN(*args) -> Function:
     """
@@ -3309,6 +3766,7 @@ def DMIN(*args) -> Function:
     """
     return Function("DMIN", args)
 
+
 def DPRODUCT(*args) -> Function:
     """
     Returns the product of values selected from a database table-like array or range
@@ -3316,6 +3774,7 @@ def DPRODUCT(*args) -> Function:
     Learn more: https//support.google.com/docs/answer/3094230
     """
     return Function("DPRODUCT", args)
+
 
 def DSTDEV(*args) -> Function:
     """
@@ -3325,6 +3784,7 @@ def DSTDEV(*args) -> Function:
     """
     return Function("DSTDEV", args)
 
+
 def DSTDEVP(*args) -> Function:
     """
     Returns the standard deviation of an entire population selected from a database
@@ -3332,6 +3792,7 @@ def DSTDEVP(*args) -> Function:
     Learn more: https//support.google.com/docs/answer/3094280
     """
     return Function("DSTDEVP", args)
+
 
 def DSUM(*args) -> Function:
     """
@@ -3341,6 +3802,7 @@ def DSUM(*args) -> Function:
     """
     return Function("DSUM", args)
 
+
 def DVAR(*args) -> Function:
     """
     Returns the variance of a population sample selected from a database table-like
@@ -3348,6 +3810,7 @@ def DVAR(*args) -> Function:
     Learn more: https//support.google.com/docs/answer/3094236
     """
     return Function("DVAR", args)
+
 
 def DVARP(*args) -> Function:
     """
@@ -3357,12 +3820,14 @@ def DVARP(*args) -> Function:
     """
     return Function("DVARP", args)
 
+
 def CONVERT(*args) -> Function:
     """
     Converts a numeric value to a different unit of measure.
     Learn more: https//support.google.com/docs/answer/6055540
     """
     return Function("CONVERT", args)
+
 
 def TO_DATE(*args) -> Function:
     """
@@ -3371,6 +3836,7 @@ def TO_DATE(*args) -> Function:
     """
     return Function("TO_DATE", args)
 
+
 def TO_DOLLARS(*args) -> Function:
     """
     Converts a provided number to a dollar value.
@@ -3378,12 +3844,14 @@ def TO_DOLLARS(*args) -> Function:
     """
     return Function("TO_DOLLARS", args)
 
+
 def TO_PERCENT(*args) -> Function:
     """
     Converts a provided number to a percentage.
     Learn more: https//support.google.com/docs/answer/3094284
     """
     return Function("TO_PERCENT", args)
+
 
 def TO_PURE_NUMBER(*args) -> Function:
     """
@@ -3393,6 +3861,7 @@ def TO_PURE_NUMBER(*args) -> Function:
     """
     return Function("TO_PURE_NUMBER", args)
 
+
 def TO_TEXT(*args) -> Function:
     """
     Converts a provided numeric value to a text value.
@@ -3400,12 +3869,14 @@ def TO_TEXT(*args) -> Function:
     """
     return Function("TO_TEXT", args)
 
+
 def ARRAY_CONSTRAIN(*args) -> Function:
     """
     Constrains an array result to a specified size.
     Learn more: https//support.google.com/docs/answer/3267036
     """
     return Function("ARRAY_CONSTRAIN", args)
+
 
 def FREQUENCY(*args) -> Function:
     """
@@ -3415,6 +3886,7 @@ def FREQUENCY(*args) -> Function:
     """
     return Function("FREQUENCY", args)
 
+
 def GROWTH(*args) -> Function:
     """
     Given partial data about an exponential growth trend, fits an ideal exponential
@@ -3422,6 +3894,7 @@ def GROWTH(*args) -> Function:
     Learn more: https//support.google.com/docs/answer/3094287
     """
     return Function("GROWTH", args)
+
 
 def LINEST(*args) -> Function:
     """
@@ -3431,6 +3904,7 @@ def LINEST(*args) -> Function:
     """
     return Function("LINEST", args)
 
+
 def LOGEST(*args) -> Function:
     """
     Given partial data about an exponential growth curve, calculates various
@@ -3438,6 +3912,7 @@ def LOGEST(*args) -> Function:
     Learn more: https//support.google.com/docs/answer/3094251
     """
     return Function("LOGEST", args)
+
 
 def MDETERM(*args) -> Function:
     """
@@ -3447,6 +3922,7 @@ def MDETERM(*args) -> Function:
     """
     return Function("MDETERM", args)
 
+
 def MINVERSE(*args) -> Function:
     """
     Returns the multiplicative inverse of a square matrix specified as an array or
@@ -3455,12 +3931,14 @@ def MINVERSE(*args) -> Function:
     """
     return Function("MINVERSE", args)
 
+
 def MMULT(*args) -> Function:
     """
     Calculates the matrix product of two matrices specified as arrays or ranges.
     Learn more: https//support.google.com/docs/answer/3094292
     """
     return Function("MMULT", args)
+
 
 def SUMPRODUCT(*args) -> Function:
     """
@@ -3470,12 +3948,14 @@ def SUMPRODUCT(*args) -> Function:
     """
     return Function("SUMPRODUCT", args)
 
+
 def SUMX2MY2(*args) -> Function:
     """
     Calculates the sum of the differences of the squares of values in two arrays.
     Learn more: https//support.google.com/docs/answer/3094257
     """
     return Function("SUMX2MY2", args)
+
 
 def SUMX2PY2(*args) -> Function:
     """
@@ -3484,6 +3964,7 @@ def SUMX2PY2(*args) -> Function:
     """
     return Function("SUMX2PY2", args)
 
+
 def SUMXMY2(*args) -> Function:
     """
     Calculates the sum of the squares of differences of values in two arrays.
@@ -3491,12 +3972,14 @@ def SUMXMY2(*args) -> Function:
     """
     return Function("SUMXMY2", args)
 
+
 def TRANSPOSE(*args) -> Function:
     """
     Transposes the rows and columns of an array or range of cells.
     Learn more: https//support.google.com/docs/answer/3094262
     """
     return Function("TRANSPOSE", args)
+
 
 def TREND(*args) -> Function:
     """
@@ -3506,6 +3989,7 @@ def TREND(*args) -> Function:
     """
     return Function("TREND", args)
 
+
 def ENCODEURL(*args) -> Function:
     """
     Encodes a string of text for the purpose of using in a URL query.
@@ -3513,12 +3997,14 @@ def ENCODEURL(*args) -> Function:
     """
     return Function("ENCODEURL", args)
 
+
 def HYPERLINK(*args) -> Function:
     """
     Creates a hyperlink inside a cell.
     Learn more: https//support.google.com/docs/answer/3093313
     """
     return Function("HYPERLINK", args)
+
 
 def IMPORTDATA(*args) -> Function:
     """
@@ -3528,12 +4014,14 @@ def IMPORTDATA(*args) -> Function:
     """
     return Function("IMPORTDATA", args)
 
+
 def IMPORTFEED(*args) -> Function:
     """
     Imports a RSS or ATOM feed.
     Learn more: https//support.google.com/docs/answer/3093337
     """
     return Function("IMPORTFEED", args)
+
 
 def IMPORTHTML(*args) -> Function:
     """
@@ -3542,12 +4030,14 @@ def IMPORTHTML(*args) -> Function:
     """
     return Function("IMPORTHTML", args)
 
+
 def IMPORTRANGE(*args) -> Function:
     """
     Imports a range of cells from a specified spreadsheet.
     Learn more: https//support.google.com/docs/answer/3093340
     """
     return Function("IMPORTRANGE", args)
+
 
 def IMPORTXML(*args) -> Function:
     """
@@ -3557,10 +4047,10 @@ def IMPORTXML(*args) -> Function:
     """
     return Function("IMPORTXML", args)
 
+
 def ISURL(*args) -> Function:
     """
     Checks whether a value is a valid URL.
     Learn more: https//support.google.com/docs/answer/3256501
     """
     return Function("ISURL", args)
-
