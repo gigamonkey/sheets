@@ -8,8 +8,8 @@ from gigamonkeys.ast import AST
 from gigamonkeys.ast import BinaryOp
 from gigamonkeys.ast import UnaryOp
 
-class Formulaic:
 
+class Formulaic:
     def to_formula(self, sheet=None):
         pass
 
