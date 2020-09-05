@@ -284,14 +284,30 @@ def emit_resources(resources, enums, base_url, indent=0):
 def emit_docs(doc, indent):
     doc = doc.strip()
     indentation = " " * indent
-    if len(doc.splitlines()) > 1:
+    if len(doc.splitlines()) > 1 or len(doc) > 80:
         print(f'{indentation}"""')
-        print(textwrap.indent(doc, indentation))
+        for p in paragraphs(doc):
+            print(textwrap.indent(textwrap.fill(p, 80), indentation))
         print(f'{indentation}"""')
     elif '"' in doc:
         print(f'{indentation}"""{doc}"""')
     else:
         print(f'{indentation}"{doc}"')
+
+
+def paragraphs(text):
+    lines = [s.strip() for s in text.splitlines()]
+    ps = []
+    buf = None
+    for line in lines:
+        if line:
+            buf = f"{buf} {line}" if buf else line
+        else:
+            ps.append(buf)
+            buf = ""
+    if buf:
+        ps.append(buf)
+    return ps
 
 
 def method_params(method, enums):
