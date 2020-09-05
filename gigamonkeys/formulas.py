@@ -10,6 +10,8 @@ from gigamonkeys.ast import AST
 from gigamonkeys.ast import BinaryOp
 from gigamonkeys.ast import UnaryOp
 
+alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+
 
 class Formulaic:
     def to_formula(self, sheet=None):
@@ -68,7 +70,7 @@ class Cell(AST, Formulaic):
         return Cell(self.sheet, self.col, self.row + n)
 
     def prev_row(self, n=1):
-        return self.offset_row(-n)
+        return self.next_row(-n)
 
     def to_formula(self, sheet=None):
         "Render for use on the given sheet."
@@ -100,3 +102,18 @@ def cell(name: str, sheet=None):
         return Cell(sheet, m.group(1), int(m.group(2)))
     else:
         raise Exception(f"{name} not a legal cell name.")
+
+
+def column_name(i: int) -> str:
+    "Convert 0-based index to A, B, ... Z, AA, AB, ... column name."
+    a, b = divmod(i, 26)
+    return f"{column_name(a - 1) if a > 0 else ''}{alphabet[b]}"
+
+
+def column_index(n: str) -> int:
+    "Convert A, B, ... Z, AA, AB, ... column name to 0-based index."
+    acc = 0
+    for c in n:
+        acc *= 26
+        acc += alphabet.index(c) + 1
+    return acc - 1

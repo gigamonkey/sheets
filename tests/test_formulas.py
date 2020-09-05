@@ -35,3 +35,21 @@ def test_range_different_sheet():
 
 def test_function():
     assert Function("MAX", [r, c1, c1 + c2]).to_formula("Sheet1") == "MAX(A1:Z1000, A1, (A1 + 'Another sheet'!A1))"
+
+
+def test_alphabet_length():
+    assert len(alphabet) == 26
+
+
+def test_alphabet_no_dupes():
+    assert len(set(alphabet)) == 26
+
+
+def test_alphabet_sorted():
+    assert "".join(sorted(alphabet)) == alphabet
+
+
+def test_column_names():
+    for i in range(26 ** 3 + 26 ** 2 + 27):
+        column_name(i)
+        assert i == column_index(column_name(i))
