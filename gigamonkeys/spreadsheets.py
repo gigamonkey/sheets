@@ -296,7 +296,7 @@ class _spreadsheets:
                 "responseValueRenderOption": response_value_render_option,
                 "valueInputOption": value_input_option,
             }
-            return requests.put(url, params=params, headers=self.headers).json()
+            return requests.put(url, params=params, json=request, headers=self.headers).json()
 
 
 class AddBandingRequest(TypedDict):
@@ -332,9 +332,9 @@ class AddConditionalFormatRuleRequest(TypedDict):
 class AddDataSourceRequest(TypedDict):
     """
     Adds a data source. After the data source is added successfully, an associated
-    DataSource sheet is created and an execution is triggered to refresh the sheet
+    DATA_SOURCE sheet is created and an execution is triggered to refresh the sheet
     to read data from the data source. The request requires an additional
-    bigquery.readonly OAuth scope.
+    `bigquery.readonly` OAuth scope.
     """
 
     dataSource: DataSource
@@ -684,7 +684,7 @@ class BatchUpdateValuesResponse(TypedDict):
 
 
 class BigQueryDataSourceSpec(TypedDict):
-    "The specification of a BigQuery data source."
+    "The specification of a BigQuery data source that's connected to a sheet."
     projectId: str
     querySpec: BigQueryQuerySpec
     tableSpec: BigQueryTableSpec
@@ -696,7 +696,11 @@ class BigQueryQuerySpec(TypedDict):
 
 
 class BigQueryTableSpec(TypedDict):
-    "Specifies a BigQuery table definition. Only native tables is allowed."
+    """
+    Specifies a BigQuery table definition. Only [native
+    tables](https://cloud.google.com/bigquery/docs/tables-intro) is allowed.
+    """
+
     datasetId: str
     tableId: str
     tableProjectId: str
@@ -1024,7 +1028,18 @@ class CutPasteRequest(TypedDict):
 
 
 class DataExecutionStatus(TypedDict):
-    "The data execution status."
+    """
+    The data execution status. A data execution is created to sync a data source
+    object with the latest data from a DataSource. It is usually scheduled to run at
+    background, you can check its state to tell if an execution completes There are
+    several scenarios where a data execution is triggered to run: * Adding a data
+    source creates an associated data source sheet as well as a data execution to
+    sync the data from the data source to the sheet. * Updating a data source
+    creates a data execution to refresh the associated data source sheet similarly.
+    * You can send refresh request to explicitly refresh one or multiple data source
+    objects.
+    """
+
     errorCode: DataExecutionErrorCode
     errorMessage: str
     lastRefreshTime: str
@@ -1060,13 +1075,13 @@ class DataSourceChartProperties(TypedDict):
 
 
 class DataSourceColumn(TypedDict):
-    "A data source column."
+    "A column in a data source."
     formula: str
     reference: DataSourceColumnReference
 
 
 class DataSourceColumnReference(TypedDict):
-    "An unique identifier that references to a data source column."
+    "An unique identifier that references a data source column."
     name: str
 
 
@@ -1092,7 +1107,7 @@ class DataSourceObjectReferences(TypedDict):
 
 class DataSourceParameter(TypedDict):
     """
-    A parameter in a data source's query. The parameter allows user to pass in
+    A parameter in a data source's query. The parameter allows the user to pass in
     values from the spreadsheet into a query.
     """
 
@@ -1102,14 +1117,14 @@ class DataSourceParameter(TypedDict):
 
 
 class DataSourceRefreshDailySchedule(TypedDict):
-    "Schedule refreshes in a time interval everyday."
+    "A schedule for data to refresh every day in a given time interval."
     startTime: TimeOfDay
 
 
 class DataSourceRefreshMonthlySchedule(TypedDict):
     """
-    Schedule refreshes in a time interval on specified days in a month and repeats
-    monthly.
+    A monthly schedule for data to refresh on specific days in the month in a given
+    time interval.
     """
 
     daysOfMonth: List[int]
@@ -1118,11 +1133,11 @@ class DataSourceRefreshMonthlySchedule(TypedDict):
 
 class DataSourceRefreshSchedule(TypedDict):
     """
-    The data source refresh schedule. All data sources in the spreadsheet are
-    scheduled to refresh in a future time interval. The time interval size defaults
-    to the one defined in the Sheets editor. For example, if a daily schedule at
-    start time of 8am is scheduled, and the time interval is 4 hours, the scheduled
-    refresh will happen between 8am and 12pm every day.
+    Schedule for refreshing the data source. Data sources in the spreadsheet are
+    refreshed within a time interval. You can specify the start time by clicking the
+    Scheduled Refresh button in the Sheets editor, but the interval is fixed at 4
+    hours. For example, if you specify a start time of 8am , the refresh will take
+    place between 8am and 12pm every day.
     """
 
     dailySchedule: DataSourceRefreshDailySchedule
@@ -1134,38 +1149,39 @@ class DataSourceRefreshSchedule(TypedDict):
 
 
 class DataSourceRefreshWeeklySchedule(TypedDict):
-    """
-    Schedule refreshes in a time interval on specified days in a week and repeats
-    weekly.
-    """
-
+    "A weekly schedule for data to refresh on specific days in a given time interval."
     daysOfWeek: List[DayOfWeek]
     startTime: TimeOfDay
 
 
 class DataSourceSheetDimensionRange(TypedDict):
-    "A range along a single dimension on a DataSource sheet."
+    "A range along a single dimension on a DATA_SOURCE sheet."
     columnReferences: List[DataSourceColumnReference]
     sheetId: int
 
 
 class DataSourceSheetProperties(TypedDict):
-    "Additional properties of a SheetType.DATA_SOURCE sheet."
+    "Additional properties of a DATA_SOURCE sheet."
     columns: List[DataSourceColumn]
     dataExecutionStatus: DataExecutionStatus
     dataSourceId: str
 
 
 class DataSourceSpec(TypedDict):
-    "The specification of a data source."
+    """
+    This specifies the details of the data source. For example, for BigQuery, this
+    specifies information about the BigQuery source.
+    """
+
     bigQuery: BigQueryDataSourceSpec
     parameters: List[DataSourceParameter]
 
 
 class DataSourceTable(TypedDict):
     """
-    A data source table, allowing to import a static table of data from the
-    DataSource into Sheets. This is also known as "Extract" in the Sheets editor.
+    A data source table, which allows the user to import a static table of data from
+    the DataSource into Sheets. This is also known as "Extract" in the Sheets
+    editor.
     """
 
     columnSelectionType: DataSourceTableColumnSelectionType
@@ -1916,10 +1932,10 @@ class RefreshDataSourceObjectExecutionStatus(TypedDict):
 class RefreshDataSourceRequest(TypedDict):
     """
     Refreshes one or multiple data source objects in the spreadsheet by the
-    specified references. The request requires an additional bigquery.readonly OAuth
-    scope. If there're multiple refresh requests referencing the same data source
-    objects in one batch, only the last refresh request is processed, and all those
-    requests will have the same response accordingly.
+    specified references. The request requires an additional `bigquery.readonly`
+    OAuth scope. If there are multiple refresh requests referencing the same data
+    source objects in one batch, only the last refresh request is processed, and all
+    those requests will have the same response accordingly.
     """
 
     dataSourceId: str
@@ -2390,9 +2406,9 @@ class UpdateConditionalFormatRuleResponse(TypedDict):
 class UpdateDataSourceRequest(TypedDict):
     """
     Updates a data source. After the data source is updated successfully, an
-    execution is triggered to refresh the associated DataSource sheet to read data
+    execution is triggered to refresh the associated DATA_SOURCE sheet to read data
     from the updated data source. The request requires an additional
-    bigquery.readonly OAuth scope.
+    `bigquery.readonly` OAuth scope.
     """
 
     dataSource: DataSource
