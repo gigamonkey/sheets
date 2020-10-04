@@ -264,7 +264,7 @@ def emit_resources(resources, enums, base_url, indent=0):
             path = m["path"].format(**path_args)
 
             http_method = m["httpMethod"].lower()
-            payload = ", json=request" if http_method == "post" else ""
+            payload = ", json=request" if http_method in {"post", "put"} else ""
 
             query_params = [f'"{p.name}": {snake_case(p.name)}' for p in ps if p.location == "query"]
             qp = f"{{{', '.join(query_params)}}}" if query_params else ""
